@@ -1,4 +1,4 @@
-package org.example;
+package com.uetoop.main;
 import java.util.Scanner;
 import java.util.Random;
 
