@@ -88,4 +88,26 @@ public class DictionaryDatabase {
             return "";
         }
     }
+
+    public void addDatabase(String insertWord, String insertDescription, String insertPronounce) {
+        String sql = "INSERT INTO av (id, word, html, description, pronounce) VALUES ((SELECT MAX(id)), insertWord, 'inserted', insertDescription, insertPronounce)";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)
+             ){
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void removeDatabaseWord(String insertWord) {
+        String sql = "DELETE FROM av WHERE word = insertWord AND id > 108854";
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)
+        ) {
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
