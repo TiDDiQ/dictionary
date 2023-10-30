@@ -26,18 +26,24 @@ public class Thesaurus {
     public String extractSynonym(String s) { // synonym = dong nghia
         int indexSynonym = s.indexOf("synonyms\":[\"", 0);
         int indexEnd = s.indexOf("]", indexSynonym);
+        if(indexSynonym < 0) {
+            return "";
+        }
         return s.substring(indexSynonym+11, indexEnd);
     }
 
     public String extractAntonym(String s) { // antonym = trai nghia
         int indexAntonym = s.indexOf("antonyms\":[\"", 0);
         int indexEnd = s.indexOf("]", indexAntonym);
+        if(indexAntonym < 0) {
+            return "";
+        }
         return s.substring(indexAntonym+11, indexEnd);
     }
 
     public static void main(String[] args) throws IOException {  // chay test thoi
         Thesaurus thesaurus = new Thesaurus();
-        String def = thesaurus.test("cold"); // chon tu
+        String def = thesaurus.test("funny"); // chon tu
         System.out.println(thesaurus.extractAntonym(def)); //       dong nghia / trai nghia
     }
 }
