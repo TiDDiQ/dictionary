@@ -10,6 +10,7 @@ import java.net.URLEncoder;
 public class Google {
     private static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
+        langTo = "vi";
         String urlStr = "https://script.google.com/macros/s/AKfycby7dnW8tRttw86z5gXs18yqsmc41WgrUTz_dt8JzNzBWKT2YCAgd0nj_sxYD8a66KRxtQ/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
                 "&target=" + langTo +
