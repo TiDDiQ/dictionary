@@ -34,7 +34,7 @@ class Tracnghiem {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Welcome to quiz \n");
-        for(int i = 0; i <= 13; i++) {
+        for(int i = 0; i <= 10; i++) {
             System.out.println(q[i]);
             user_ans = sc.nextLine();
             if(user_ans.equals(ans[i])){
