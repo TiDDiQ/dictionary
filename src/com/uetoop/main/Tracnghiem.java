@@ -1,6 +1,7 @@
+package com.uetoop.main;
 import java.util.Scanner;
 
-class Main {
+class Tracnghiem {
     public static void main(String args []) {
         String user_ans;
         int score = 0;

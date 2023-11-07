@@ -53,6 +53,7 @@ public class DictionaryDatabase {
         }
     }
 
+    //findWord("id", "34")+
     public String findWord(String column, String text) {
         String sql = "SELECT word FROM av WHERE " + column + " = " + "'" + text + "'";
         try (Connection conn = this.connect();

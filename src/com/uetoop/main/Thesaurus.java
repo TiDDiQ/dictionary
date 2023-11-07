@@ -41,7 +41,7 @@ public class Thesaurus {
         return s.substring(indexAntonym+11, indexEnd);
     }
 
-    public static void main(String[] args) throws IOException {  // chay test thoi
+    public static void main(String[] args) throws IOException {  // chay test
         Thesaurus thesaurus = new Thesaurus();
         String def = thesaurus.test("funny"); // chon tu
         System.out.println(thesaurus.extractAntonym(def)); //       dong nghia / trai nghia
