@@ -5,15 +5,15 @@ import java.util.Random;
 public class Hangman {
 
     public static void main(String[] args) {
-        Random obj = new Random();
-        int Ran_num = obj.nextInt(108000);
-        String random = Integer.toString(Ran_num);
         DictionaryDatabase db = new DictionaryDatabase();
-        String word = db.findWord("id", random);
         Scanner sc = new Scanner(System.in);
         boolean playAgain = true;
 
         while (playAgain) {
+            Random obj = new Random();
+            int Ran_num = obj.nextInt(108000);
+            String random = Integer.toString(Ran_num);
+            String word = db.findWord("id", random);
             int remainingGuesses = 5;
             StringBuilder guessedLetters = new StringBuilder();
             StringBuilder wordInProgress = new StringBuilder(word.length());
@@ -61,7 +61,7 @@ public class Hangman {
                 playAgain = false;
             }
         }
-        System.out.println(Ran_num);
+        //System.out.println(Ran_num);
         sc.close();
     }
 }
