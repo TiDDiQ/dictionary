@@ -11,7 +11,7 @@ public class Hangman {
 
         while (playAgain) {
             Random obj = new Random();
-            int Ran_num = obj.nextInt(108000);
+            int Ran_num = obj.nextInt(108854);
             String random = Integer.toString(Ran_num);
             String word = db.findWord("id", random);
             int remainingGuesses = 5;
