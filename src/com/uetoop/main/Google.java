@@ -8,13 +8,13 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class Google {
-    private static String translate(String langFrom, String text) throws IOException {
+    private static String translate(String text) throws IOException {
         // INSERT YOU URL HERE
         String langTo = "vi";
         String urlStr = "https://script.google.com/macros/s/AKfycby7dnW8tRttw86z5gXs18yqsmc41WgrUTz_dt8JzNzBWKT2YCAgd0nj_sxYD8a66KRxtQ/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
                 "&target=" + langTo +
-                "&source=" + langFrom;
+                "&source=" + "en";
         URL url = new URL(urlStr);
         StringBuilder response = new StringBuilder();
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
