@@ -1,4 +1,4 @@
-package demo.demo;
+package com.uetoop.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
