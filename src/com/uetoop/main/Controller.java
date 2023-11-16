@@ -1,15 +1,10 @@
 package com.uetoop.main;
 import java.util.Scanner;
-import java.util.Random;
 
-public class Hangman {
-
+public class Controller {
     public static void main(String[] args) {
-        Random obj = new Random();
-        int Ran_num = obj.nextInt(108000);
-        String random = Integer.toString(Ran_num);
-        DictionaryDatabase db = new DictionaryDatabase();
-        String word = db.findWord("id", random);
+        Initializer initializer = new Initializer();
+        String word = initializer.initializeGame();
         Scanner sc = new Scanner(System.in);
         boolean playAgain = true;
 
