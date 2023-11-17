@@ -66,6 +66,7 @@ public class DictionaryDatabase {
         }
     }
 
+    //findWord("description", "Hi")
     public String findDescription(String column, String text) {
         String sql = "SELECT description FROM av WHERE " + column + " = " + "'" + text + "'";
         try (Connection conn = this.connect();
@@ -110,5 +111,25 @@ public class DictionaryDatabase {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public String showDatabasePage(int pageNumber) {
+        String sql = "SELECT id, word, description, pronounce FROM av LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+             return rs.getString("id") + "\t" +
+                     rs.getString("word") + "\t" +
+                     rs.getString("description") + "\t" +
+                     rs.getString("pronounce");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    public static void main(String[] args) {
+        DictionaryDatabase db = new DictionaryDatabase();
+        db.printAll();
     }
 }
