@@ -8,7 +8,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class Google {
-    public static String translate(String text) throws IOException {
+    public String translate(String text) throws IOException {
         // INSERT YOU URL HERE
         String langTo = "vi";
         String urlStr = "https://script.google.com/macros/s/AKfycby7dnW8tRttw86z5gXs18yqsmc41WgrUTz_dt8JzNzBWKT2YCAgd0nj_sxYD8a66KRxtQ/exec" +
