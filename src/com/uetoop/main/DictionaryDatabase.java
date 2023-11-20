@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class DictionaryDatabase {
     private Connection connect() {
@@ -21,18 +22,16 @@ public class DictionaryDatabase {
 
     public void printAll(){
         String sql = "SELECT * FROM av";
-
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getInt("id") +  "\t" +
+                System.out.println( rs.getInt("id") +  "\t" +
                         rs.getString("word") + "\t" +
                         rs.getString("description") + "\t" +
-                        rs.getString("pronounce")
-                );
+                        rs.getString("pronounce") );
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -91,7 +90,8 @@ public class DictionaryDatabase {
     }
 
     public void addDatabase(String insertWord, String insertDescription, String insertPronounce) {
-        String sql = "INSERT INTO av (id, word, html, description, pronounce) VALUES ((SELECT MAX(id)), insertWord, 'inserted', insertDescription, insertPronounce)";
+        String sql = "INSERT INTO av (id, word, html, description, pronounce) VALUES ((SELECT MAX(id) FROM av) + 1, '"
+                + insertWord + "', 'inserted', " + insertDescription + ", " + insertPronounce+ ")";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)
@@ -102,7 +102,9 @@ public class DictionaryDatabase {
     }
 
     public void removeDatabaseWord(String insertWord) {
-        String sql = "DELETE FROM av WHERE word = insertWord AND id > 108854";
+        String sql1 = "DELETE FROM av WHERE word = " + insertWord + " AND id > 108854;";
+        String sql2 = " DELETE FROM favouriteWords WHERE word = " + insertWord;
+        String sql = sql1 + sql2;
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)
@@ -111,6 +113,53 @@ public class DictionaryDatabase {
             System.out.println(e.getMessage());
         }
     }
+
+    public void addFavouriteWord(String insertWord) {
+        String sql = "INSERT INTO favouriteWords (id, word, description, pronounce) "
+                + "VALUES ((SELECT id FROM av WHERE word = '" + insertWord + "'), '"
+                + insertWord + "', (SELECT description FROM av WHERE word = '" + insertWord
+                + "'), (SELECT pronounce FROM av WHERE word = '" + insertWord + "'))";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)
+        ){
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void removeFavouriteWord(String insertWord) {
+        String sql = "DELETE FROM favouriteWords WHERE word = '" + insertWord + "'";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)
+        ){
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public String printAllFavouriteWords(){
+        String sql = "SELECT * FROM favouriteWords";
+        String ans = "";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                ans += rs.getInt("id") +  "\t" +
+                        rs.getString("word") + "\t" +
+                        rs.getString("description") + "\t" +
+                        rs.getString("pronounce") + "\n";
+            }
+            return ans;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
 
     public String showDatabasePage(int pageNumber) {
         String sql = "SELECT id, word, description, pronounce FROM av LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
@@ -130,4 +179,26 @@ public class DictionaryDatabase {
             return "";
         }
     }
+
+    public String showDatabaseAlphabetPage(char alphabet, int pageNumber) {
+        String sql = "SELECT id, word, description, pronounce FROM av "
+                + "WHERE word LIKE '" + alphabet + "%'"
+                + " LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            String ans = "";
+            while (rs.next()) {
+                ans += rs.getString("id") + "\t" +
+                        rs.getString("word") + "\t" +
+                        rs.getString("description") + "\t" +
+                        rs.getString("pronounce") + "\n";
+            }
+            return ans;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return "";
+        }
+    }
 }
+
