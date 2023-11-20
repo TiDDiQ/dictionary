@@ -30,7 +30,6 @@ public class DictionaryDatabase {
             while (rs.next()) {
                 System.out.println(rs.getInt("id") +  "\t" +
                         rs.getString("word") + "\t" +
-                        rs.getString("html") + "\t" +
                         rs.getString("description") + "\t" +
                         rs.getString("pronounce")
                 );
@@ -118,18 +117,17 @@ public class DictionaryDatabase {
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)){
-             return rs.getString("id") + "\t" +
-                     rs.getString("word") + "\t" +
-                     rs.getString("description") + "\t" +
-                     rs.getString("pronounce");
+             String ans = "";
+             while (rs.next()) {
+                 ans += rs.getString("id") + "\t" +
+                         rs.getString("word") + "\t" +
+                         rs.getString("description") + "\t" +
+                         rs.getString("pronounce") + "\n";
+             }
+             return ans;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return "";
         }
-    }
-
-    public static void main(String[] args) {
-        DictionaryDatabase db = new DictionaryDatabase();
-        db.printAll();
     }
 }
