@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Objects;
 
 public class DictionaryDatabase {
     private Connection connect() {
@@ -65,8 +64,8 @@ public class DictionaryDatabase {
     }
 
     //findWord("description", "Hi")
-    public String findDescription(String column, String text) {
-        String sql = "SELECT description FROM av WHERE " + column + " = " + "'" + text + "'";
+    public String findDescription(String text) {
+        String sql = "SELECT description FROM av WHERE " + "word" + " = " + "'" + text + "'";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
@@ -200,5 +199,32 @@ public class DictionaryDatabase {
             return "";
         }
     }
+
+    public void updateWord(String word, String update) {
+        String sql = "UPDATE table SET word = '" + update + "' WHERE word = '" + word + "'";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)
+        ){
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+    public String wordForHangman() {
+
+        String sql = "SELECT word FROM av WHERE " + column + " = " + "'" + text + "'";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            //int rng = (int) (Math.random() * (108000 - 1 + 1) + 1);
+            return rs.getString("word");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return "";
+        }
+    }
+     **/
 }
 
