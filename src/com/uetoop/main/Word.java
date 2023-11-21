@@ -1,4 +1,4 @@
-package oop21.dictionaryinterface;
+package com.uetoop.main;
 
 public class Word {
     private String word_target;
