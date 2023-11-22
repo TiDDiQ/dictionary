@@ -1,8 +1,8 @@
 package com.uetoop.main;
 import java.util.Scanner;
 
-class Tracnghiem {
-    public static void main(String args []) {
+class Tracnghiem extends DictionaryDatabase {
+    public void game() {
         String user_ans;
         int score = 0;
         String[] q = new String[13];

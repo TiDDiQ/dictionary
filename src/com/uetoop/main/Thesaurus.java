@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Thesaurus {
+public class Thesaurus extends Google {
     public String test(String word) throws IOException {
         URL url = new URL("https://api.dictionaryapi.dev/api/v2/entries/en/" + word);
         StringBuilder response = new StringBuilder();
@@ -35,15 +35,9 @@ public class Thesaurus {
     public String extractAntonym(String s) { // antonym = trai nghia
         int indexAntonym = s.indexOf("antonyms\":[\"", 0);
         int indexEnd = s.indexOf("]", indexAntonym);
-        if(indexAntonym < 0) {
+        if (indexAntonym < 0) {
             return "";
         }
-        return s.substring(indexAntonym+11, indexEnd);
-    }
-
-    public static void main(String[] args) throws IOException {  // chay test
-        Thesaurus thesaurus = new Thesaurus();
-        String def = thesaurus.test("funny"); // chon tu
-        System.out.println(thesaurus.extractAntonym(def)); //       dong nghia / trai nghia
+        return s.substring(indexAntonym + 11, indexEnd);
     }
 }

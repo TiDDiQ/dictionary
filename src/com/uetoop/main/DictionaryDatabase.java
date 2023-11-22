@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DictionaryDatabase extends Google {
+public class DictionaryDatabase extends Thesaurus {
     private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:database\\dict_hh.db";
@@ -242,7 +242,7 @@ public class DictionaryDatabase extends Google {
     }
 
     public void updateWord(String word, String update, String updateOn) {
-        String sql = "UPDATE table SET " + updateOn + " = '" + update + "' WHERE word = '" + word + "'";
+        String sql = "UPDATE av SET " + updateOn + " = '" + update + "' WHERE word = '" + word + "'";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)

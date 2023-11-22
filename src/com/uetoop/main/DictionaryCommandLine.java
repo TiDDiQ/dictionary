@@ -17,7 +17,9 @@ import java.util.Scanner;
                     "[5] Lookup\n" +
                     "[6] Search\n" +
                     "[7] Game\n" +
-                    "[8] Export from file\n"
+                    "[8] Export from file\n" +
+                    "[9] Synonyms\n" +
+                    "[10] Antonyms"
             );
             Scanner scanner = new Scanner(System.in);
             boolean loop = true;
@@ -35,7 +37,7 @@ import java.util.Scanner;
                         String word = scanner.nextLine();
                         System.out.println("Enter its description:");
                         String description = scanner.nextLine();
-                        System.out.println("Enter its pronunciation");
+                        System.out.println("Enter its pronunciation:");
                         String pronunciation = scanner.nextLine();
                         cmdL.addDatabase(word, description, pronunciation);
                         System.out.println("Word successfully added!");
@@ -111,6 +113,7 @@ import java.util.Scanner;
                         word = scanner.nextLine();
                         String word5 = cmdL.findWord("word", word);
                         if (!word5.equals("")) {
+                            cmdL.textToSpeech(word);
                             try {
                                 System.out.println("Translation:\t" + cmdL.translate(word));
                             } catch (IOException e) {
@@ -155,6 +158,26 @@ import java.util.Scanner;
                             throw new RuntimeException(e);
                         }
                         System.out.println("Export completed!");
+                        break;
+                    case 9:
+                        System.out.println("Choose word");
+                        word = scanner.nextLine();
+                        String thesaurus = cmdL.extractSynonym(word);
+                        if (!thesaurus.equals("")) {
+                            System.out.println(thesaurus);
+                        } else {
+                            System.out.println("No synonym found");
+                        }
+                        break;
+                    case 10:
+                        System.out.println("Choose word");
+                        word = scanner.nextLine();
+                        thesaurus = cmdL.extractAntonym(word);
+                        if (!thesaurus.equals("")) {
+                            System.out.println(thesaurus);
+                        } else {
+                            System.out.println("No antonym found");
+                        }
                         break;
                     default:
                         System.out.println("Error");
