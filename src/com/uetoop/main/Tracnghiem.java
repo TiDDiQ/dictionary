@@ -1,7 +1,7 @@
 package com.uetoop.main;
 import java.util.Scanner;
 
-class Tracnghiem extends DictionaryDatabase {
+public class Tracnghiem extends DictionaryDatabase {
     public void startGame() {
         String user_ans;
         int score = 0;

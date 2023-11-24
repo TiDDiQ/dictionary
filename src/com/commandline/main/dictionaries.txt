@@ -1,0 +1,3 @@
+hello   xin chao
+board   bang
+ghost   con ma
