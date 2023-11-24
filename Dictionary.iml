@@ -115,5 +115,6 @@
     </orderEntry>
     <orderEntry type="library" name="jsapi" level="project" />
     <orderEntry type="library" name="javaFX" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

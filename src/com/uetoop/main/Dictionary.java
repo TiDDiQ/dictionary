@@ -1,6 +1,9 @@
 package com.uetoop.main;
 
 public class Dictionary {
+    public Dictionary(int size) {
+    }
+    /**
         public Word[] wordList;
         private int size;
 
@@ -36,5 +39,5 @@ public class Dictionary {
         public int getSize() {
             return size;
         }
-
+**/
     }

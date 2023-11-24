@@ -1,31 +1,55 @@
 package com.uetoop.main;
 
+import com.uetoop.main.DictionaryDatabase;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 
 public class HelloController {
 
-    @FXML
-    private Text Nghia;
 
     @FXML
-    private Text Tu_loai;
+    private Button ButtonSound;
 
     @FXML
-    private ImageView background;
+    private Button favouriteWord;
 
     @FXML
-    private ImageView icon_loa;
+    private Button Button;
 
     @FXML
-    private TextField search_word;
+    private TextField inputText;
 
     @FXML
-    private Text textDic;
+    private Label labelResult;
+
+    DictionaryDatabase db = new DictionaryDatabase();
 
     @FXML
-    private Text word;
+    void onSubmit(ActionEvent event) {
+        String userInput = inputText.getText().trim();
+        if (!userInput.isEmpty()) {
+            String meaning = db.findDescription(userInput);
+
+            if (!meaning.isEmpty()) {
+                labelResult.setText("Meaning: " + meaning);
+            } else {
+                labelResult.setText("Meaning not found.");
+            }
+        } else {
+            labelResult.setText("Please enter a word.");
+        }
+
+    }
+//
+//    @FXML
+//    void ClickSound(ActionEvent event) {
+//
+//
+//    }
 
 }
+
+

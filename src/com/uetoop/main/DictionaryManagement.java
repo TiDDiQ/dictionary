@@ -1,8 +1,12 @@
 package com.uetoop.main;
 
-import java.util.Scanner;
+import com.uetoop.main.Dictionary;
 
 public class DictionaryManagement extends Dictionary {
+    public DictionaryManagement(int size) {
+        super(size);
+    }
+    /**
     public DictionaryManagement(int size) {
         super(size);
     }
@@ -25,5 +29,5 @@ public class DictionaryManagement extends Dictionary {
             addWord(new Word(wordTarget, wordExplain));
         }
     }
-
+**/
 }

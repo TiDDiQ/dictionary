@@ -1,34 +1,42 @@
 package com.uetoop.main;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Scanner;
 
-    public class DictionaryCommandLine extends Dictionary {
-        public DictionaryCommandLine(int size) {
-            super(size);
+    public class DictionaryCommandLine {
+        /**
+        private static final HashMap<String, String> word = new HashMap<>();
+
+        static {
+            word.put();
         }
 
-        public class DictionaryCommandline extends Dictionary {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
 
-            public DictionaryCommandline(int size) {
-                super(size);
+            System.out.print("Search here: ");
+            String word = scanner.nextLine();
+
+            DictionaryCommandLine dictionary = new DictionaryCommandLine();
+            String definition = dictionary.findDefinition(word);
+
+            if (definition != null) {
+                System.out.println("Meaning " + word + ": " + definition);
+            } else {
+                System.out.println("Not found:" + word);
             }
-
-            public void showAllWords() {
-                Arrays.sort(wordList, (word1, word2) -> word1.getClass().getModifiers());
-
-                System.out.println("List words:");
-                for (int i = 0; i < getSize(); i++) {
-                    System.out.println(i + 1 + ". " + wordList[i].getClass() + " - " + wordList[i].getWordExplain());
+        }
+        private String findDefinition(String word) {
+            String definition = null;
+            DictionaryCommandLine dictionary = null;
+            for (String key : dictionary.word.keySet()) {
+                if (key.equals(word)) {
+                    definition = dictionary.word.get(key);
+                    break;
                 }
             }
-
-            public void dictionaryBasic() {
-                insertFromCommandline();
-                showAllWords();
-            }
-
-            private void insertFromCommandline() {
-
-            }
+            return definition;
         }
     }
+**/
+}
