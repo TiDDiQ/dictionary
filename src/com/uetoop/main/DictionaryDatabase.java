@@ -220,10 +220,9 @@ public class DictionaryDatabase extends Thesaurus {
         }
     }
 
-    public String showDatabaseLookalikeWordPage(String word, int pageNumber) {
+    public String showDatabaseLookalikeWordPage(String word) {
         String sql = "SELECT id, word, description, pronounce FROM av "
-                + "WHERE word LIKE '%" + word + "%' "
-                + "LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
+                + "WHERE word LIKE '" + word + "%' ";
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)){
@@ -271,6 +270,19 @@ public class DictionaryDatabase extends Thesaurus {
             return "";
         }
     }
+
+    public int getSize() {
+        String sql = "SELECT id FROM av ORDER BY id DESC LIMIT 1";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)) {
+             return rs.getInt("id");
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            return -1;
+        }
+    }
+
     /**
     public String wordForHangman() {
 
@@ -286,6 +298,5 @@ public class DictionaryDatabase extends Thesaurus {
         }
     }
      **/
-
 }
 

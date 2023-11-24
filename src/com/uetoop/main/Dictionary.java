@@ -1,40 +1,29 @@
 package com.uetoop.main;
 
-public class Dictionary {
-        public Word[] wordList;
-        private int size;
+import java.util.ArrayList;
+import java.util.List;
 
-        public Dictionary(int size) {
-            this.wordList = new Word[size];
-            this.size = 0;
+public class Dictionary {
+        private List<Word> wordList = new ArrayList<>();
+
+        public Dictionary() {
         }
 
         public void addWord(Word word) {
-            if (size == wordList.length) {
-                expandWordList();
-            }
-            wordList[size++] = word;
-        }
-
-        private void expandWordList() {
-            Word[] newWordList = new Word[wordList.length * 2];
-            for (int i = 0; i < size; i++) {
-                newWordList[i] = wordList[i];
-            }
-            wordList = newWordList;
-        }
-
-        public Word getWord(String word_target) {
-            for (int i = 0; i < size; i++) {
-                if (wordList[i].getWordTarget()) {
-                    return wordList[i];
+            for (Word i : wordList) {
+                if (i.equals(word)) {
+                    return;
+                } else {
+                    wordList.add(word);
                 }
             }
-            return null;
         }
 
         public int getSize() {
-            return size;
+            return wordList.size();
         }
 
-    }
+        public List<Word> getWordList() {
+            return wordList;
+        }
+}
