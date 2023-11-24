@@ -13,10 +13,9 @@ public class Dictionary {
             for (Word i : wordList) {
                 if (i.equals(word)) {
                     return;
-                } else {
-                    wordList.add(word);
                 }
             }
+            wordList.add(word);
         }
 
         public int getSize() {
