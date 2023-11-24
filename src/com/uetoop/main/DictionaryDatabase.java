@@ -70,7 +70,7 @@ public class DictionaryDatabase {
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
             return rs.getString("description");
-        } catch (SQLException e) {
+        } catch (SQLException e) { 
             System.out.println(e.getMessage());
             return "";
         }
