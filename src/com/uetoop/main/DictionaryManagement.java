@@ -32,14 +32,11 @@ public class DictionaryManagement extends Dictionary {
         }
         String text = scanner.useDelimiter("\\A").next();
         scanner.close();
-        while (!text.equals("")) {
-            int indexOfEndl = text.indexOf("\n");
-            String substr = text.substring(0, indexOfEndl-1);
-            text = text.substring(indexOfEndl+1, text.length()-1);
-            int indexOfTab = substr.indexOf("\t");
-            String wordTarget = substr.substring(0, indexOfTab - 1);
-            String wordExplain = substr.substring(indexOfTab + 1);
-            addWord(new Word(wordTarget, wordExplain));
+        String[] wordPairs = text.split("\n");
+        for (String i : wordPairs) {
+            String[] words = i.split("   ");
+            words[1] = words[1].replaceAll("^\\s+", "");
+            addWord(new Word(words[0], words[1]));
         }
         System.out.println("Inserted words from file!");
     }

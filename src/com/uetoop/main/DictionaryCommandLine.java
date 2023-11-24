@@ -71,14 +71,13 @@ public class DictionaryCommandLine extends DictionaryManagement {
                     break;
                 default:
                     System.out.println("Action not supported");
-                }
             }
-        }
-
-        public static void main (String[] args) {
-            DictionaryCommandLine cmd = new DictionaryCommandLine();
-            cmd.dictionaryBasic();
         }
     }
 
+    public static void main (String[] args) {
+        DictionaryCommandLine cmd = new DictionaryCommandLine();
+        cmd.dictionaryAdvanced();
+    }
+}
 
