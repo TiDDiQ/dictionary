@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DictionaryDatabase extends Thesaurus {
+public class DictionaryDatabase {
     private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:database\\dict_hh.db";

@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class Google extends TextSpeech {
+public class Google {
     public String translate(String text) throws IOException {
         // INSERT YOU URL HERE
         String langTo = "vi";

@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Thesaurus extends Google {
+public class Thesaurus {
     public String test(String word) throws IOException {
         URL url = new URL("https://api.dictionaryapi.dev/api/v2/entries/en/" + word);
         StringBuilder response = new StringBuilder();

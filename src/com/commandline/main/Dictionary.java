@@ -25,4 +25,8 @@ public class Dictionary {
         public List<Word> getWordList() {
             return wordList;
         }
+
+        public void setWordList(List<Word> wordList) {
+            this.wordList = wordList;
+        }
 }

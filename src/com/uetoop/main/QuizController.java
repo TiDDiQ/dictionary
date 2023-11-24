@@ -1,4 +1,4 @@
-package com.example.btl;
+package com.uetoop.main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

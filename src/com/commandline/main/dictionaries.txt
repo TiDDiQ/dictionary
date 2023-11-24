@@ -1,3 +1,9 @@
-hello   xin chao
-board   bang
-ghost   con ma
+airplane	may bay
+board	bang
+future	tuong lai
+ghost	con ma
+hello	xin chao
+moon	mat trang
+opinion 	y kien
+opponent	doi thu
+water	nuoc

@@ -1,4 +1,4 @@
-package com.example.btl;
+package com.uetoop.main;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

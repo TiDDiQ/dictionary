@@ -1,12 +1,12 @@
 package com.commandline.main;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
     Scanner scanner = new Scanner(System.in);
+
     public void insertFromCommandline() {
         System.out.println("Insert number of words: ");
         int numberOfWord = scanner.nextInt();
@@ -21,6 +21,7 @@ public class DictionaryManagement extends Dictionary {
             addWord(new Word(wordTarget, wordExplain));
             System.out.println("Word " + (i+1) + " inserted!");
         }
+        Collections.sort(getWordList());
     }
 
     public void insertFromFile() {
@@ -34,11 +35,11 @@ public class DictionaryManagement extends Dictionary {
         scanner.close();
         String[] wordPairs = text.split("\n");
         for (String i : wordPairs) {
-            String[] words = i.split("   ");
-            words[1] = words[1].replaceAll("^\\s+", "");
+            String[] words = i.split("\t");
             addWord(new Word(words[0], words[1]));
         }
         System.out.println("Inserted words from file!");
+        Collections.sort(getWordList());
     }
 
     public void dictionaryExportToFile() {
@@ -61,17 +62,12 @@ public class DictionaryManagement extends Dictionary {
     public void dictionaryLookup() {
         System.out.println("Type in a word:");
         String word = scanner.nextLine();
-        boolean isFoundWord = false;
-        System.out.println("No\t| English\t| Vietnamese");
-        for (Word i : getWordList()) {
-            if (i.getWord_target().equals(word)) {
-                isFoundWord = true;
-                System.out.println("1" + "\t| " + word + "\t| "
-                        + i.getWord_target());
-                break;
-            }
-        }
-        if(!isFoundWord) {
+        int index = Collections.binarySearch(getWordList(), new Word(word));
+        if (index >= 0) {
+            Word foundWord = getWordList().get(index);
+            System.out.println("No\t| English\t| Vietnamese");
+            System.out.println("1" + "\t| " + word + "\t| " + foundWord.getWord_explain());
+        } else {
             System.out.println("No word found");
         }
     }
@@ -83,6 +79,7 @@ public class DictionaryManagement extends Dictionary {
         String wordExplain = scanner.nextLine();
         addWord(new Word(wordTarget, wordExplain));
         System.out.println("Word added!");
+        Collections.sort(getWordList());
     }
 
     public void updateDictionaryWord() {
@@ -139,6 +136,4 @@ public class DictionaryManagement extends Dictionary {
             System.out.println("No word found");
         }
     }
-
-
 }
