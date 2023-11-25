@@ -4,6 +4,5 @@ future	tuong lai
 ghost	con ma
 hello	xin chao
 moon	mat trang
-opinion 	y kien
 opponent	doi thu
 water	nuoc
