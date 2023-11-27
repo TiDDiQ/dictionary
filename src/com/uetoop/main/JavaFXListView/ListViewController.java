@@ -16,14 +16,12 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ListViewController implements Initializable {
     Google google = new Google();
     DictionaryDatabase db = new DictionaryDatabase();
+    TextSpeech tts = new TextSpeech();
     Thesaurus thesaurus = new Thesaurus();
 
     @FXML
@@ -68,7 +66,6 @@ public class ListViewController implements Initializable {
 
     @FXML
     void ttsButtonSubmit(ActionEvent event) {
-        TextSpeech tts = new TextSpeech();
         tts.textToSpeech(currentWord);
     }
 
