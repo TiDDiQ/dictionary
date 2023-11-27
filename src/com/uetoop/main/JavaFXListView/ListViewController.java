@@ -2,6 +2,8 @@ package com.uetoop.main.JavaFXListView;
 
 import com.uetoop.main.DictionaryDatabase;
 import com.uetoop.main.Google;
+import com.uetoop.main.TextSpeech;
+import com.uetoop.main.Thesaurus;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -22,9 +24,13 @@ import java.util.ResourceBundle;
 public class ListViewController implements Initializable {
     Google google = new Google();
     DictionaryDatabase db = new DictionaryDatabase();
+    Thesaurus thesaurus = new Thesaurus();
 
     @FXML
     private Button ListSearchButton;
+
+    @FXML
+    private Button TextToSpeech;
 
     @FXML
     private TextField listViewSearchBar;
@@ -36,16 +42,34 @@ public class ListViewController implements Initializable {
     private Label listViewSearchTranslation;
 
     @FXML
+    private Label listViewSearchDescription;
+
+    @FXML
+    private Label listViewPronunciation;
+
+    @FXML
+    private Label listViewSynonyms;
+
+    @FXML
+    private Label listViewAntonyms;
+
+    @FXML
     private ListView<String> dictionaryListView;
 
     ArrayList<String> words = db.showAllInArray();
 
-    String currentWord;
+    String currentWord = "";
 
     @FXML
     void searchButtonSubmit (ActionEvent event) {
         dictionaryListView.getItems().clear();
         dictionaryListView.getItems().addAll(searchList(listViewSearchBar.getText()));
+    }
+
+    @FXML
+    void ttsButtonSubmit(ActionEvent event) {
+        TextSpeech tts = new TextSpeech();
+        tts.textToSpeech(currentWord);
     }
 
     @Override
@@ -61,6 +85,10 @@ public class ListViewController implements Initializable {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                listViewSearchDescription.setText(db.findDescription(currentWord));
+                listViewPronunciation.setText(db.findPronounce("word", currentWord));
+                listViewSynonyms.setText(thesaurus.extractSynonym(currentWord));
+                listViewAntonyms.setText(thesaurus.extractAntonym(currentWord));
             }
         });
     }
