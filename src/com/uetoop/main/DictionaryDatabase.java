@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DictionaryDatabase {
     private Connection connect() {
@@ -18,6 +19,39 @@ public class DictionaryDatabase {
             //System.out.println(e.getMessage());
         }
         return conn;
+    }
+
+    private String getString(String sql) {
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            String ans = "";
+            while (rs.next()) {
+                ans += rs.getString("id") + "\t" +
+                        rs.getString("word") + "\t" +
+                        rs.getString("description") + "\t" +
+                        rs.getString("pronounce") + "\n";
+            }
+            return ans;
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    private ArrayList<String> getStrings(String sql) {
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            ArrayList<String> ans = new ArrayList<>();
+            while (rs.next()) {
+                ans.add(rs.getString("word"));
+            }
+            return ans;
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            throw new RuntimeException();
+        }
     }
 
     public void printAll(){
@@ -89,7 +123,7 @@ public class DictionaryDatabase {
         }
     }
 
-    public void addDatabase(String insertWord, String insertDescription, String insertPronounce) {
+    public void addDatabaseWord(String insertWord, String insertDescription, String insertPronounce) {
         String sql = "INSERT INTO av (id, word, html, description, pronounce) VALUES ((SELECT MAX(id) FROM av) + 1, '"
                 + insertWord + "', 'inserted', '" + insertDescription + "', '" + insertPronounce+ "')";
         try (Connection conn = this.connect();
@@ -109,6 +143,17 @@ public class DictionaryDatabase {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)
         ) {
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+        }
+    }
+
+    public void updateDatabaseWord(String word, String update, String updateOn) {
+        String sql = "UPDATE av SET " + updateOn + " = '" + update + "' WHERE word = '" + word + "'";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)
+        ){
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
         }
@@ -139,136 +184,76 @@ public class DictionaryDatabase {
         }
     }
 
-    public String printAllFavouriteWords(){
+    public String showAllFavouriteWordsInString(){
         String sql = "SELECT * FROM favouriteWords";
-        String ans = "";
+        return getString(sql);
+    }
+
+    public ArrayList<String> showAllFavouriteWordsInArray(){
+        String sql = "SELECT * FROM favouriteWords";
+        ArrayList<String> ans = new ArrayList<>();
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
 
             // loop through the result set
             while (rs.next()) {
-                ans += rs.getInt("id") +  "\t" +
-                        rs.getString("word") + "\t" +
-                        rs.getString("description") + "\t" +
-                        rs.getString("pronounce") + "\n";
+                ans.add(rs.getString("word"));
             }
             return ans;
         } catch (SQLException e) {
             //System.out.println(e.getMessage());
-            return "";
+            throw new RuntimeException();
         }
     }
 
-
-    public String showDatabasePage(int pageNumber) {
+    public String showDatabasePageInString(int pageNumber) {
         String sql = "SELECT id, word, description, pronounce FROM av LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-             String ans = "";
-             while (rs.next()) {
-                 ans += rs.getString("id") + "\t" +
-                         rs.getString("word") + "\t" +
-                         rs.getString("description") + "\t" +
-                         rs.getString("pronounce") + "\n";
-             }
-             return ans;
-        } catch (SQLException e) {
-            //System.out.println(e.getMessage());
-            return "";
-        }
+        return getString(sql);
+    }
+
+    public ArrayList<String> showDatabasePageInArray(int pageNumber) {
+        String sql = "SELECT id, word, description, pronounce FROM av LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
+        return getStrings(sql);
     }
 
     public String showDatabaseAlphabetPage(char alphabet, int pageNumber) {
         String sql = "SELECT id, word, description, pronounce FROM av "
                 + "WHERE word LIKE '" + alphabet + "%'"
                 + " LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            String ans = "";
-            while (rs.next()) {
-                ans += rs.getString("id") + "\t" +
-                        rs.getString("word") + "\t" +
-                        rs.getString("description") + "\t" +
-                        rs.getString("pronounce") + "\n";
-            }
-            return ans;
-        } catch (SQLException e) {
-            //System.out.println(e.getMessage());
-            return "";
-        }
+        return getString(sql);
     }
 
-    public String showDatabaseFavouritePage(int pageNumber) {
+    public String showDatabaseFavouritePageInString(int pageNumber) {
         String sql = "SELECT id, word, description, pronounce FROM favouriteWords LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-            String ans = "";
-            while (rs.next()) {
-                ans += rs.getString("id") + "\t" +
-                        rs.getString("word") + "\t" +
-                        rs.getString("description") + "\t" +
-                        rs.getString("pronounce") + "\n";
-            }
-            return ans;
-        } catch (SQLException e) {
-            //System.out.println(e.getMessage());
-            return "";
-        }
+        return getString(sql);
     }
 
-    public String showDatabaseLookalikeWordPage(String word) {
+    public ArrayList<String> showDatabaseFavouritePageInArray(int pageNumber) {
+        String sql = "SELECT id, word, description, pronounce FROM favouriteWords LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
+        return getStrings(sql);
+    }
+
+    public String showDatabaseLookalikeWordPageInString(String word) {
         String sql = "SELECT id, word, description, pronounce FROM av "
                 + "WHERE word LIKE '" + word + "%' ";
-        try (Connection conn = this.connect();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-            String ans = "";
-            while (rs.next()) {
-                ans += rs.getString("id") + "\t" +
-                        rs.getString("word") + "\t" +
-                        rs.getString("description") + "\t" +
-                        rs.getString("pronounce") + "\n";
-            }
-            return ans;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return "";
-        }
+        return getString(sql);
     }
 
-    public void updateWord(String word, String update, String updateOn) {
-        String sql = "UPDATE av SET " + updateOn + " = '" + update + "' WHERE word = '" + word + "'";
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)
-        ){
-        } catch (SQLException e) {
-            //System.out.println(e.getMessage());
-        }
+    public ArrayList<String> showDatabaseLookalikeWordPageInArray(String word) {
+        String sql = "SELECT id, word, description, pronounce FROM av "
+                + "WHERE word LIKE '" + word + "%' ";
+        return getStrings(sql);
     }
 
-    public String showAll(){
+    public String showAllInString(){
         String sql = "SELECT * FROM av";
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
+        return getString(sql);
+    }
 
-            String ans = "";
-            while (rs.next()) {
-                ans += rs.getInt("id") +  "\t" +
-                        rs.getString("word") + "\t" +
-                        rs.getString("description") + "\t" +
-                        rs.getString("pronounce") + "\n";
-            }
-            return ans;
-        } catch (SQLException e) {
-            //System.out.println(e.getMessage());
-            return "";
-        }
+    public ArrayList<String> showAllInArray(){
+        String sql = "SELECT * FROM av";
+        return getStrings(sql);
     }
 
     public int getSize() {

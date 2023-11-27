@@ -1,5 +1,6 @@
 package com.uetoop.main.JavaFXListView;
 
+import com.uetoop.main.DictionaryDatabase;
 import com.uetoop.main.Google;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class ListViewController implements Initializable {
     Google google = new Google();
+    DictionaryDatabase db = new DictionaryDatabase();
 
     @FXML
     private Button ListSearchButton;
@@ -36,20 +38,14 @@ public class ListViewController implements Initializable {
     @FXML
     private ListView<String> dictionaryListView;
 
-    ArrayList<String> words = new ArrayList<>(
-            Arrays.asList("pizza","sushi","ramen", "test", "dog", "days of our life", "the best day",
-            "friends", "animal", "human", "humans", "bear", "life",
-            "this is some text", "words", "222", "bird", "dog", "a few words",
-            "subscribe!", "software engineering student", "you got this!!",
-            "super human", "super", "like")
-    );
+    ArrayList<String> words = db.showAllInArray();
 
     String currentWord;
 
     @FXML
     void searchButtonSubmit (ActionEvent event) {
         dictionaryListView.getItems().clear();
-        dictionaryListView.getItems().addAll(searchList(listViewSearchBar.getText(), words));
+        dictionaryListView.getItems().addAll(searchList(listViewSearchBar.getText()));
     }
 
     @Override
@@ -69,14 +65,7 @@ public class ListViewController implements Initializable {
         });
     }
 
-    private List<String> searchList(String searchWords, List<String> listOfStrings) {
-        List<String> searchWordsArray = new ArrayList<>();
-        for (int i=0; i< listOfStrings.size(); i++) {
-            String wordInList = listOfStrings.get(i);
-            if (wordInList.indexOf(searchWords) == 0) {
-                searchWordsArray.add(wordInList);
-            }
-        }
-        return searchWordsArray;
+    private List<String> searchList(String searchWord) {
+        return db.showDatabaseLookalikeWordPageInArray(searchWord);
     }
 }
