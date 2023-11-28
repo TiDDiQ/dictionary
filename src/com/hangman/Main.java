@@ -1,5 +1,5 @@
-package com.uetoop.main;
-package sample;
+package com.hangman;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

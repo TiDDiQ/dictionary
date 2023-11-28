@@ -11,12 +11,7 @@
       <ListView fx:id="dictionaryListView" layoutX="22.0" layoutY="72.0" prefHeight="300.0" prefWidth="200.0" />
       <Button fx:id="ListSearchButton" layoutX="184.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchButtonSubmit" prefHeight="39.0" prefWidth="34.0" text="OK" />
       <TextField fx:id="listViewSearchBar" layoutX="22.0" layoutY="14.0" prefHeight="39.0" prefWidth="150.0" />
-      <Label fx:id="listViewSearchFound" layoutX="229.0" layoutY="72.0" prefHeight="48.0" prefWidth="364.0" text="WORD PLACEMENT" />
-      <Label fx:id="listViewSearchTranslation" layoutX="229.0" layoutY="120.0" prefHeight="48.0" prefWidth="351.0" text="GOOGLE TRANSLATION PLACEMENT" />
-      <Label fx:id="listViewSearchDescription" layoutX="229.0" layoutY="176.0" prefHeight="48.0" prefWidth="351.0" text="SQL TRANSLATION PLACEMENT" />
-      <Button fx:id="TextToSpeech" layoutX="461.0" layoutY="14.0" mnemonicParsing="false" onAction="#ttsButtonSubmit" prefHeight="39.0" prefWidth="118.0" text="TTS PLACEMENT" />
-      <Label fx:id="listViewSynonyms" layoutX="229.0" layoutY="231.0" prefHeight="48.0" prefWidth="351.0" text="SYNONYMS PLACEMENT" />
-      <Label fx:id="listViewAntonyms" layoutX="229.0" layoutY="290.0" prefHeight="48.0" prefWidth="351.0" text="ANTONYMS PLACEMENT" />
-      <Label fx:id="listViewPronunciation" layoutX="282.0" layoutY="10.0" prefHeight="48.0" prefWidth="169.0" text="PRONUNCIATION PLACEMENT" />
+      <Label fx:id="listViewSearchFound" layoutX="229.0" layoutY="72.0" prefHeight="48.0" prefWidth="364.0" />
+      <Label fx:id="listViewSearchTranslation" layoutX="229.0" layoutY="140.0" prefHeight="48.0" prefWidth="364.0" />
    </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package com.uetoop.main;
+package com.uetoop.main.Dic_main;
 
 import com.uetoop.main.DictionaryDatabase;
 import javafx.event.ActionEvent;
@@ -42,6 +42,18 @@ public class HelloController {
             labelResult.setText("Please enter a word.");
         }
 
+    }
+
+    public void opt1clicked(ActionEvent actionEvent) {
+    }
+
+    public void opt2clicked(ActionEvent actionEvent) {
+    }
+
+    public void opt3clicked(ActionEvent actionEvent) {
+    }
+
+    public void opt4clicked(ActionEvent actionEvent) {
     }
 //
 //    @FXML
