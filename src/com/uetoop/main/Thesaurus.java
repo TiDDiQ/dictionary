@@ -22,6 +22,11 @@ public class Thesaurus {
     }
 
     public String extractSynonym(String s) { // synonym = dong nghia
+        try {
+            s = test(s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         int indexSynonym = s.indexOf("synonyms\":[\"", 0);
         int indexEnd = s.indexOf("]", indexSynonym);
         if(indexSynonym < 0) {
@@ -31,6 +36,11 @@ public class Thesaurus {
     }
 
     public String extractAntonym(String s) { // antonym = trai nghia
+        try {
+            s = test(s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         int indexAntonym = s.indexOf("antonyms\":[\"", 0);
         int indexEnd = s.indexOf("]", indexAntonym);
         if (indexAntonym < 0) {

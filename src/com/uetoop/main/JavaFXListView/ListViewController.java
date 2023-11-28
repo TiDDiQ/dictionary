@@ -1,6 +1,9 @@
 package com.uetoop.main.JavaFXListView;
 
+import com.uetoop.main.DictionaryDatabase;
 import com.uetoop.main.Google;
+import com.uetoop.main.TextSpeech;
+import com.uetoop.main.Thesaurus;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,16 +16,19 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ListViewController implements Initializable {
     Google google = new Google();
+    DictionaryDatabase db = new DictionaryDatabase();
+    TextSpeech tts = new TextSpeech();
+    Thesaurus thesaurus = new Thesaurus();
 
     @FXML
     private Button ListSearchButton;
+
+    @FXML
+    private Button TextToSpeech;
 
     @FXML
     private TextField listViewSearchBar;
@@ -34,22 +40,33 @@ public class ListViewController implements Initializable {
     private Label listViewSearchTranslation;
 
     @FXML
+    private Label listViewSearchDescription;
+
+    @FXML
+    private Label listViewPronunciation;
+
+    @FXML
+    private Label listViewSynonyms;
+
+    @FXML
+    private Label listViewAntonyms;
+
+    @FXML
     private ListView<String> dictionaryListView;
 
-    ArrayList<String> words = new ArrayList<>(
-            Arrays.asList("pizza","sushi","ramen", "test", "dog", "days of our life", "the best day",
-            "friends", "animal", "human", "humans", "bear", "life",
-            "this is some text", "words", "222", "bird", "dog", "a few words",
-            "subscribe!", "software engineering student", "you got this!!",
-            "super human", "super", "like")
-    );
+    ArrayList<String> words = db.showAllInArray();
 
-    String currentWord;
+    String currentWord = "";
 
     @FXML
     void searchButtonSubmit (ActionEvent event) {
         dictionaryListView.getItems().clear();
-        dictionaryListView.getItems().addAll(searchList(listViewSearchBar.getText(), words));
+        dictionaryListView.getItems().addAll(searchList(listViewSearchBar.getText()));
+    }
+
+    @FXML
+    void ttsButtonSubmit(ActionEvent event) {
+        tts.textToSpeech(currentWord);
     }
 
     @Override
@@ -65,18 +82,15 @@ public class ListViewController implements Initializable {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                listViewSearchDescription.setText(db.findDescription(currentWord));
+                listViewPronunciation.setText(db.findPronounce("word", currentWord));
+                listViewSynonyms.setText(thesaurus.extractSynonym(currentWord));
+                listViewAntonyms.setText(thesaurus.extractAntonym(currentWord));
             }
         });
     }
 
-    private List<String> searchList(String searchWords, List<String> listOfStrings) {
-        List<String> searchWordsArray = new ArrayList<>();
-        for (int i=0; i< listOfStrings.size(); i++) {
-            String wordInList = listOfStrings.get(i);
-            if (wordInList.indexOf(searchWords) == 0) {
-                searchWordsArray.add(wordInList);
-            }
-        }
-        return searchWordsArray;
+    private List<String> searchList(String searchWord) {
+        return db.showDatabaseLookalikeWordPageInArray(searchWord);
     }
 }

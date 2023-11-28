@@ -6,7 +6,7 @@ import javax.speech.Central;
 import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 
-public class    TextSpeech {
+public class TextSpeech {
     public void textToSpeech(String word) {
         try {
             System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us" + ".cmu_us_kal.KevinVoiceDirectory");
