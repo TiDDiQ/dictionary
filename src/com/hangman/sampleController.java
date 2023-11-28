@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Controller {
+public class sampleController {
 
     @FXML
     private Pane man;
@@ -46,7 +46,7 @@ public class Controller {
     private List<String> myLetters;
     private List<String> answer;
 
-    public Controller() throws FileNotFoundException {
+    public sampleController() throws FileNotFoundException {
     }
 
     public void initialize() {
