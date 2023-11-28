@@ -1,3 +1,4 @@
+
 package com.uetoop.main;
 
 import java.sql.DriverManager;
@@ -14,7 +15,7 @@ public class DictionaryDatabase {
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
         return conn;
     }
@@ -33,7 +34,7 @@ public class DictionaryDatabase {
                         rs.getString("pronounce") );
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
@@ -45,7 +46,7 @@ public class DictionaryDatabase {
              int ans =rs.getInt("id");
              return Integer.toString(ans);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "";
         }
     }
@@ -58,7 +59,7 @@ public class DictionaryDatabase {
              ResultSet rs    = stmt.executeQuery(sql)){
             return rs.getString("word");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "";
         }
     }
@@ -70,8 +71,8 @@ public class DictionaryDatabase {
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
             return rs.getString("description");
-        } catch (SQLException e) { 
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
             return "";
         }
     }
@@ -83,25 +84,25 @@ public class DictionaryDatabase {
              ResultSet rs    = stmt.executeQuery(sql)){
             return rs.getString("pronounce");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "";
         }
     }
 
     public void addDatabase(String insertWord, String insertDescription, String insertPronounce) {
         String sql = "INSERT INTO av (id, word, html, description, pronounce) VALUES ((SELECT MAX(id) FROM av) + 1, '"
-                + insertWord + "', 'inserted', " + insertDescription + ", " + insertPronounce+ ")";
+                + insertWord + "', 'inserted', '" + insertDescription + "', '" + insertPronounce+ "')";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)
              ){
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
     public void removeDatabaseWord(String insertWord) {
-        String sql1 = "DELETE FROM av WHERE word = " + insertWord + " AND id > 108854;";
+        String sql1 = "DELETE FROM av WHERE word = '" + insertWord + "' AND id > 108854;";
         String sql2 = " DELETE FROM favouriteWords WHERE word = " + insertWord;
         String sql = sql1 + sql2;
         try (Connection conn = this.connect();
@@ -109,7 +110,7 @@ public class DictionaryDatabase {
              ResultSet rs = stmt.executeQuery(sql)
         ) {
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
@@ -123,7 +124,7 @@ public class DictionaryDatabase {
              ResultSet rs    = stmt.executeQuery(sql)
         ){
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
@@ -134,7 +135,7 @@ public class DictionaryDatabase {
              ResultSet rs    = stmt.executeQuery(sql)
         ){
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
         }
     }
 
@@ -154,7 +155,7 @@ public class DictionaryDatabase {
             }
             return ans;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "";
         }
     }
@@ -174,7 +175,7 @@ public class DictionaryDatabase {
              }
              return ans;
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "";
         }
     }
@@ -195,19 +196,90 @@ public class DictionaryDatabase {
             }
             return ans;
         } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    public String showDatabaseFavouritePage(int pageNumber) {
+        String sql = "SELECT id, word, description, pronounce FROM favouriteWords LIMIT 20 OFFSET " + 20 * (pageNumber - 1);
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            String ans = "";
+            while (rs.next()) {
+                ans += rs.getString("id") + "\t" +
+                        rs.getString("word") + "\t" +
+                        rs.getString("description") + "\t" +
+                        rs.getString("pronounce") + "\n";
+            }
+            return ans;
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    public String showDatabaseLookalikeWordPage(String word) {
+        String sql = "SELECT id, word, description, pronounce FROM av "
+                + "WHERE word LIKE '" + word + "%' ";
+        try (Connection conn = this.connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            String ans = "";
+            while (rs.next()) {
+                ans += rs.getString("id") + "\t" +
+                        rs.getString("word") + "\t" +
+                        rs.getString("description") + "\t" +
+                        rs.getString("pronounce") + "\n";
+            }
+            return ans;
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return "";
         }
     }
 
-    public void updateWord(String word, String update) {
-        String sql = "UPDATE table SET word = '" + update + "' WHERE word = '" + word + "'";
+    public void updateWord(String word, String update, String updateOn) {
+        String sql = "UPDATE av SET " + updateOn + " = '" + update + "' WHERE word = '" + word + "'";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)
         ){
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
+        }
+    }
+
+    public String showAll(){
+        String sql = "SELECT * FROM av";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            String ans = "";
+            while (rs.next()) {
+                ans += rs.getInt("id") +  "\t" +
+                        rs.getString("word") + "\t" +
+                        rs.getString("description") + "\t" +
+                        rs.getString("pronounce") + "\n";
+            }
+            return ans;
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            return "";
+        }
+    }
+
+    public int getSize() {
+        String sql = "SELECT id FROM av ORDER BY id DESC LIMIT 1";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)) {
+             return rs.getInt("id");
+        } catch (SQLException e) {
+            //System.out.println(e.getMessage());
+            return -1;
         }
     }
 
@@ -221,7 +293,7 @@ public class DictionaryDatabase {
             //int rng = (int) (Math.random() * (108000 - 1 + 1) + 1);
             return rs.getString("word");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "";
         }
     }

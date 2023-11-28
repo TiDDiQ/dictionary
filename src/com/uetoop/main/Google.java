@@ -22,8 +22,7 @@ public class Google {
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
+            response.append(inputLine);        }
         in.close();
         return response.toString();
     }

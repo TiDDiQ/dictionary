@@ -1,8 +1,8 @@
 package com.uetoop.main;
 import java.util.Scanner;
 
-class Tracnghiem {
-    public static void main(String args []) {
+public class Tracnghiem {
+    public void startGame() {
         String user_ans;
         int score = 0;
         String[] q = new String[13];
