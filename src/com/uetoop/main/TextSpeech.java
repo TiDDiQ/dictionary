@@ -1,12 +1,13 @@
 package com.uetoop.main;
 
-import java.io.IOException;
 import java.util.Locale;
 import javax.speech.Central;
 import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 
 public class TextSpeech {
+    private String word;
+
     public void textToSpeech(String word) {
         try {
             System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us" + ".cmu_us_kal.KevinVoiceDirectory");
@@ -15,19 +16,15 @@ public class TextSpeech {
             synthesizer.allocate();
             synthesizer.resume();
 
-            // Speaks the given text
-            // until the queue is empty.
+            // Speaks the given text until the queue is empty.
             synthesizer.speakPlainText(word, null);
-            synthesizer.waitEngineState(
-                    Synthesizer.QUEUE_EMPTY);
 
-            // Deallocate the Synthesizer.
-            synthesizer.deallocate();
-        }
+            // Wait for the synthesis to complete
+            synthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
+            synthesizer.cancel();
 
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
