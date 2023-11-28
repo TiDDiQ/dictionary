@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.HelloController">
+<AnchorPane cacheShape="false" centerShape="false" prefHeight="397.0" prefWidth="534.0" scaleShape="false" styleClass="blue-background" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.HelloController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="dic" fitHeight="397.0" fitWidth="397.0" layoutX="146.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@dic1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonQuizGame" layoutX="27.0" layoutY="168.0" mnemonicParsing="false" onAction="#QuizGameButton" prefHeight="61.0" prefWidth="82.0" styleClass="gradient-background" stylesheets="@Style.css" text="QuizGame" />
+      <Button fx:id="ButtonSound" layoutX="236.0" layoutY="186.0" mnemonicParsing="false" text="Sound" />
+      <Button fx:id="favouriteWord" layoutX="400.0" layoutY="72.0" mnemonicParsing="false" text="favoriteWord" />
+      <Label fx:id="labelResult" layoutX="199.0" layoutY="230.0" prefHeight="40.0" prefWidth="343.0" styleClass="dicText-font" stylesheets="@Style.css" text="Label" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inputText" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="206.0" layoutY="134.0" onAction="#onSubmit" opacity="0.9" promptText="Search for word" scaleShape="false" styleClass="dicText-font" stylesheets="@Style.css" text="hi" />
    </children>
 </AnchorPane>

@@ -1,5 +1,7 @@
 package com.quiz;
 
+import com.uetoop.main.Dic_main.HelloApplication;
+import com.uetoop.main.Dic_main.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class QuizController {
+    @FXML
+    private Button backButton; // Assume you have a "Back" button in quiz.fxml
+
+    private HelloController helloApplication;
+
    @FXML
    public Label question;
 
@@ -298,6 +305,10 @@ public class QuizController {
         }
     }
 
+
+    public void setHelloApplication(HelloController helloController) {
+       this.helloApplication = helloController;
+    }
 }
 
 
