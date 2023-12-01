@@ -2,22 +2,36 @@ package com.uetoop.main.Dic_main;
 
 import com.quiz.QuizController;
 import com.uetoop.main.DictionaryDatabase;
+import com.uetoop.main.Google;
+import com.uetoop.main.JavaFXListView.ListViewController;
+import com.uetoop.main.TextSpeech;
+import com.uetoop.main.Thesaurus;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.Node;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class HelloController {
+public class HelloController implements Initializable {
 
 
     @FXML
@@ -40,6 +54,7 @@ public class HelloController {
     private Label labelResult;
 
     private Parent root;
+    private Parent root1;
     DictionaryDatabase db = new DictionaryDatabase();
 
     @FXML
@@ -61,7 +76,7 @@ public class HelloController {
 
 
     @FXML
-    void QuizGameButton(ActionEvent event) throws  IOException{
+    void QuizGameButton(ActionEvent event) throws IOException {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/quiz/quiz.fxml"));
             root = fxmlLoader.load();
@@ -79,8 +94,115 @@ public class HelloController {
     }
 
 
+    Google google = new Google();
+
+    TextSpeech tts = new TextSpeech();
+    Thesaurus thesaurus = new Thesaurus();
+
+
+    @FXML
+    private Button TextToSpeech;
+
+
+    @FXML
+    private Label listViewSearchFound;
+
+    @FXML
+    private Label listViewSearchTranslation;
+
+    @FXML
+    private Label listViewSearchDescription;
+
+    @FXML
+    private Label listViewPronunciation;
+
+    @FXML
+    private Label listViewSynonyms;
+
+    @FXML
+    private Label listViewAntonyms;
+
+    @FXML
+    private ListView<String> dictionaryListView;
+
+    ArrayList<String> words = db.showAllInArray();
+
+    String currentWord = "";
+
+    @FXML
+    void searchButtonSubmit(ActionEvent event) {
+        dictionaryListView.getItems().clear();
+        dictionaryListView.getItems().addAll(searchList(inputText.getText()));
+    }
+
+    @FXML
+    void ttsButtonSubmit(ActionEvent event) {
+        tts.textToSpeech(currentWord);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        dictionaryListView.getItems().addAll(words);
+        dictionaryListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                currentWord = dictionaryListView.getSelectionModel().getSelectedItem();
+                listViewSearchFound.setText(currentWord);
+           /*   try {
+                    listViewSearchTranslation.setText(google.translate(currentWord));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+             */
+                listViewSearchDescription.setText(db.findDescription(currentWord));
+                listViewPronunciation.setText(db.findPronounce("word", currentWord));
+                listViewSynonyms.setText(thesaurus.extractSynonym(currentWord));
+                listViewAntonyms.setText(thesaurus.extractAntonym(currentWord));
+            }
+        });
+    }
+
+    private List<String> searchList(String searchWord) {
+        return db.showDatabaseLookalikeWordPageInArray(searchWord);
+    }
+
+    private Parent root2;
+
+    public void AddWord(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("AddWord.fxml"));
+            root2 = loader1.load();
+            AddWordController addWordController = loader1.getController();
+            addWordController.setHelloApplication(this);
+
+            Stage addWordStage = new Stage();
+            addWordStage.setTitle("Add Word");
+
+
+            addWordStage.setScene(new Scene(root2));
+
+
+            addWordStage.initModality(Modality.APPLICATION_MODAL);
+
+            addWordStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

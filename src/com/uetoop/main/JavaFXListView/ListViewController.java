@@ -1,5 +1,6 @@
 package com.uetoop.main.JavaFXListView;
 
+import com.uetoop.main.Dic_main.HelloController;
 import com.uetoop.main.DictionaryDatabase;
 import com.uetoop.main.Google;
 import com.uetoop.main.TextSpeech;
@@ -19,6 +20,8 @@ import java.net.URL;
 import java.util.*;
 
 public class ListViewController implements Initializable {
+
+
     Google google = new Google();
     DictionaryDatabase db = new DictionaryDatabase();
     TextSpeech tts = new TextSpeech();
