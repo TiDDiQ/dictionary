@@ -1,18 +1,21 @@
 package com.uetoop.main.Dic_main;
 
 import com.uetoop.main.DictionaryDatabase;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class AddWordController {
 
     @FXML
-    private Button cancelButton;
+    private Button Cancelbutton;
 
     @FXML
-    private Button okButton;
+    private Button OKbutton;
 
     @FXML
     private TextField inputMeaning;
@@ -44,6 +47,13 @@ public class AddWordController {
         } else {
             System.out.println("Error");
         }
+        //OKbutton.setOnAction();
+
+    }
+
+    @FXML
+    public void isCancelButton(ActionEvent event){
+        Cancelbutton.setCancelButton(true);
     }
 
     public void setHelloApplication(HelloController helloController) {

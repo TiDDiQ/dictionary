@@ -10,6 +10,10 @@
 -fx-border-radius:50;
 -fx-border-color: #D7D7D7;
 }
+.buttonBorder-layout{
+-fx-border-radius: 200 ;
+-fx-border-width: 50;
+}
 
 .top-bar-background{
 -fx-background-color: #fff;

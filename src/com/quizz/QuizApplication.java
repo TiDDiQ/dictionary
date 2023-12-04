@@ -1,4 +1,4 @@
-package com.quiz;
+package com.quizz;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

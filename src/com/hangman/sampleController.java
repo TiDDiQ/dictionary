@@ -60,7 +60,7 @@ public class sampleController {
         man.setVisible(false);
         mistakes=0;
         correct=0;
-       // myWord = word.getRandomWord();
+       //myWord = word.getRandomWord();
         myLetters = Arrays.asList(myWord.split(""));
         answer = Arrays.asList(new String[myLetters.size()*2]);
         for(int i=0; i<myLetters.size()*2; i++){

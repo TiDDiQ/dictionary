@@ -1,6 +1,5 @@
-package com.quiz;
+package com.quizz;
 
-import com.uetoop.main.Dic_main.HelloApplication;
 import com.uetoop.main.Dic_main.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -303,6 +302,11 @@ public class QuizController {
             counter++;
             loadQuestion();
         }
+    }
+
+    @FXML
+    public void isCancelButton(ActionEvent event){
+
     }
 
 
