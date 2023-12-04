@@ -62,6 +62,7 @@
         private Parent root1;
         DictionaryDatabase db = new DictionaryDatabase();
 
+
         @FXML
         void onSubmit(ActionEvent event) {
             String userInput = inputText.getText().trim();
@@ -78,6 +79,7 @@
             }
 
         }
+
 
 
         @FXML

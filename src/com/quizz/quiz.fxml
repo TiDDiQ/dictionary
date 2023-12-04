@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane cacheShape="false" centerShape="false" prefHeight="460.0" prefWidth="656.0" scaleShape="false" style="-fx-background-color: FDF7E4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizz.QuizController">
+<AnchorPane cacheShape="false" centerShape="false" prefHeight="504.0" prefWidth="656.0" scaleShape="false" style="-fx-background-color: FDF7E4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizz.QuizController">
    <children>
       <Separator layoutX="22.0" layoutY="51.0" prefHeight="10.0" prefWidth="634.0" />
       <Separator layoutX="22.0" layoutY="144.0" prefHeight="2.0" prefWidth="634.0" />
@@ -19,22 +19,22 @@
          <font>
             <Font size="21.0" />
          </font></Label>
-      <Button fx:id="opt1" layoutX="81.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="57.0" prefWidth="220.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button1" textFill="#fdf7e4">
+      <Button fx:id="opt1" layoutX="82.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button1" textFill="#fdf7e4">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="opt2" layoutX="359.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt2clicked" prefHeight="57.0" prefWidth="220.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button2" textFill="#fdf7e4">
+      <Button fx:id="opt2" layoutX="359.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt2clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button2" textFill="#fdf7e4">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="opt3" layoutX="81.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt3clicked" prefHeight="57.0" prefWidth="220.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button3" textFill="#fdf7e4">
+      <Button fx:id="opt3" layoutX="81.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt3clicked" prefHeight="48.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button3" textFill="#fdf7e4">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="opt4" layoutX="359.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt4clicked" prefHeight="57.0" prefWidth="220.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button4" textFill="#fdf7e4">
+      <Button fx:id="opt4" layoutX="359.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt4clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button4" textFill="#fdf7e4">
          <font>
             <Font size="24.0" />
          </font>

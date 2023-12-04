@@ -304,10 +304,6 @@ public class QuizController {
         }
     }
 
-    @FXML
-    public void isCancelButton(ActionEvent event){
-
-    }
 
 
     public void setHelloApplication(HelloController helloController) {

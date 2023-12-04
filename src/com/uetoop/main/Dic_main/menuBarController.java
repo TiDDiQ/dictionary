@@ -1,12 +1,17 @@
 package com.uetoop.main.Dic_main;
 
+import com.quizz.QuizController;
+import com.quizz.ResultController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,21 +52,25 @@ public class menuBarController implements Initializable {
     void handleButton2Action(ActionEvent event) {
         try {
             AnchorPane view = FXMLLoader.load(getClass().getResource("google.fxml"));
-            mainPane.setLeft(view);
+            mainPane.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    void handleButton3Action(ActionEvent event) {
+    void handleButton3Action(ActionEvent event) throws IOException {
         try {
             AnchorPane view = FXMLLoader.load(getClass().getResource("/com/quizz/quiz.fxml"));
             mainPane.setCenter(view);
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
         }
-    }
+
 
     @FXML
     void handleButton4Action(ActionEvent event) {

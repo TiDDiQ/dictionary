@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane cacheShape="false" centerShape="false" prefHeight="453.0" prefWidth="727.0" scaleShape="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.menuBarController">
+<AnchorPane cacheShape="false" centerShape="false" prefHeight="434.0" prefWidth="648.0" scaleShape="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.menuBarController">
    <children>
-      <ImageView fitHeight="454.0" fitWidth="69.0" pickOnBounds="true" smooth="false">
+      <ImageView fitHeight="440.0" fitWidth="66.0" pickOnBounds="true" smooth="false">
          <image>
             <Image url="@MenuBar-02.png" />
          </image>
       </ImageView>
-      <BorderPane fx:id="mainPane" layoutY="-2.0" prefHeight="454.0" prefWidth="654.0">
+      <BorderPane fx:id="mainPane" layoutY="-2.0" prefHeight="446.0" prefWidth="643.0">
          <padding>
             <Insets bottom="40.0" />
          </padding>
          <left>
-            <VBox prefHeight="317.0" prefWidth="66.0" spacing="12.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="338.0" prefWidth="66.0" spacing="9.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="dicButton" mnemonicParsing="false" onAction="#handleButton1Action" prefHeight="40.0" prefWidth="69.0" styleClass="blue-background" stylesheets="@Style.css" text="Button" />
-                  <Button fx:id="GoogleButton" mnemonicParsing="false" onAction="#handleButton2Action" prefHeight="40.0" prefWidth="67.0" stylesheets="@Style.css" text="Button" />
-                  <Button fx:id="quizButton" mnemonicParsing="false" onAction="#handleButton3Action" prefHeight="42.0" prefWidth="59.0" stylesheets="@Style.css" text="Button" />
-                  <Button fx:id="hangmanButton" mnemonicParsing="false" onAction="#handleButton4Action" prefHeight="43.0" prefWidth="54.0" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="dicButton" mnemonicParsing="false" onAction="#handleButton1Action" opacity="0.0" prefHeight="40.0" prefWidth="69.0" styleClass="blue-background" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="GoogleButton" mnemonicParsing="false" onAction="#handleButton2Action" opacity="0.0" prefHeight="40.0" prefWidth="67.0" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="quizButton" mnemonicParsing="false" onAction="#handleButton3Action" opacity="0.0" prefHeight="42.0" prefWidth="59.0" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="hangmanButton" mnemonicParsing="false" onAction="#handleButton4Action" opacity="0.0" prefHeight="43.0" prefWidth="54.0" stylesheets="@Style.css" text="Button" />
                </children>
                <padding>
                   <Insets left="10.0" top="60.0" />
