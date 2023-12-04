@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane cacheShape="false" centerShape="false" prefHeight="434.0" prefWidth="648.0" scaleShape="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.menuBarController">
+<AnchorPane cacheShape="false" centerShape="false" prefHeight="418.0" prefWidth="672.0" scaleShape="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.menuBarController">
    <children>
       <ImageView fitHeight="440.0" fitWidth="66.0" pickOnBounds="true" smooth="false">
          <image>
             <Image url="@MenuBar-02.png" />
          </image>
       </ImageView>
-      <BorderPane fx:id="mainPane" layoutY="-2.0" prefHeight="446.0" prefWidth="643.0">
+      <BorderPane fx:id="mainPane" layoutY="4.0" prefHeight="431.0" prefWidth="672.0">
          <padding>
             <Insets bottom="40.0" />
          </padding>
@@ -35,6 +35,13 @@
                </BorderPane.margin>
             </VBox>
          </left>
+         <center>
+            <ImageView fitHeight="437.0" fitWidth="631.0" pickOnBounds="true" smooth="false" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@wp7605040.png" />
+               </image>
+            </ImageView>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>
