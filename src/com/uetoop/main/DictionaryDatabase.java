@@ -246,6 +246,12 @@ public class DictionaryDatabase {
         return getStrings(sql);
     }
 
+    public ArrayList<String> showDatabaseLookalikeWordFavouriteInArray(String word) {
+        String sql = "SELECT id, word, description, pronounce FROM favouriteWords "
+                + "WHERE word LIKE '" + word + "%' ";
+        return getStrings(sql);
+    }
+
     public String showAllInString(){
         String sql = "SELECT * FROM av";
         return getString(sql);
