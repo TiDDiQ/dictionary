@@ -1,0 +1,32 @@
+.white-background{
+ -fx-background-color: #fff;
+}
+
+.transparent{
+-fx-background-color: rgba(0,0,0,0);
+
+}
+.round-layout{
+-fx-border-radius:50;
+-fx-border-color: #D7D7D7;
+}
+.buttonBorder-layout{
+-fx-border-radius: 200 ;
+-fx-border-width: 50;
+}
+
+.top-bar-background{
+-fx-background-color: #fff;
+-fx-border-style: hidden hidden solid  hidden;
+}
+.blue-background{
+ -fx-background-color: #ddeff4;
+}
+
+.gradient-background{
+-fx-background-color: linear-gradient(to right bottom,#96aefc,#e171f7);
+}
+
+.dicText-font{
+-fx-font-family: "Times New Roman";
+}

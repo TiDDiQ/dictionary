@@ -1,0 +1,8 @@
+airplane	may bay
+board	bang
+future	tuong lai
+ghost	con ma
+hello	xin chao
+moon	mat trang
+opponent	doi thu
+water	nuoc

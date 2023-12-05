@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FDF7E4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizz.ResultController">
+   <children>
+      <Label layoutX="254.0" layoutY="45.0" text="Result">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="markstext" layoutX="49.0" layoutY="100.0" prefHeight="66.0" prefWidth="504.0" text="Very good work! This is your hardwork and dedication which help you to reach the zenith of success   " textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="marks" layoutX="243.0" layoutY="193.0" style="-fx-background-color: BBAB8C;" text="8/10" textAlignment="CENTER" textFill="#fdf7e4">
+         <font>
+            <Font name="Berlin Sans FB" size="37.0" />
+         </font>
+         <padding>
+            <Insets bottom="28.0" left="28.0" right="28.0" top="28.0" />
+         </padding>
+      </Label>
+   </children>
+</AnchorPane>
