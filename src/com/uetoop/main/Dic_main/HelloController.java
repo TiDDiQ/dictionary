@@ -49,8 +49,6 @@
         @FXML
         private ImageView dic;
 
-        @FXML
-        private Button favouriteWord;
 
         @FXML
         private TextField inputText;
@@ -128,6 +126,9 @@
 
         @FXML
         private Label listViewAntonyms;
+
+        @FXML
+        private Button FavouriteWord;
 
         @FXML
         private ListView<String> dictionaryListView;
@@ -224,6 +225,27 @@
                 removeStage.initModality(Modality.APPLICATION_MODAL);
 
                 removeStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        public void favoriteWord(ActionEvent event) throws IOException {
+            try {
+                FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FavoriteWord.fxml"));
+                root2 = loader1.load();
+                FavoriteWordController favoriteWordController = loader1.getController();
+                FavoriteWordController.setHelloApplication(this);
+
+                Stage favoriteWordStage = new Stage();
+                favoriteWordStage.setTitle("Add Word");
+
+
+                favoriteWordStage.setScene(new Scene(root2));
+
+
+                favoriteWordStage.initModality(Modality.APPLICATION_MODAL);
+
+                favoriteWordStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }

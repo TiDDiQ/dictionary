@@ -7,9 +7,9 @@
 
 <AnchorPane prefHeight="312.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.DeleteWordController">
    <children>
-      <TextField fx:id="InputText" layoutX="161.0" layoutY="119.0" />
+      <TextField fx:id="InputText" layoutX="161.0" layoutY="119.0" onAction="#handleOkbutton" />
       <Text layoutX="41.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RemoveWord" />
-      <Button fx:id="OKbutton" layoutX="141.0" layoutY="203.0" mnemonicParsing="false" onAction="#closeWindow" text="OK" />
+      <Button fx:id="OKbutton" layoutX="141.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleOkbutton" text="OK" />
       <Button fx:id="CancelButton" layoutX="228.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel" />
    </children>
 </AnchorPane>
