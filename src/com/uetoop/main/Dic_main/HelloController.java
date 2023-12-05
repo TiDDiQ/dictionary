@@ -1,6 +1,5 @@
     package com.uetoop.main.Dic_main;
 
-    import com.quizz.QuizApplication;
     import com.quizz.QuizController;
     import com.uetoop.main.DictionaryDatabase;
     import com.uetoop.main.Google;
