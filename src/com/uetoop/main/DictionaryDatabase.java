@@ -136,7 +136,7 @@ public class DictionaryDatabase {
     }
 
     public void removeDatabaseWord(String insertWord) {
-        String sql1 = "DELETE FROM av WHERE word = '" + insertWord + "' AND id > 108854;";
+        String sql1 = "DELETE FROM av WHERE word = '" + insertWord + "'";
         String sql2 = " DELETE FROM favouriteWords WHERE word = " + insertWord;
         String sql = sql1 + sql2;
         try (Connection conn = this.connect();
