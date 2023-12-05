@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane cacheShape="false" centerShape="false" prefHeight="504.0" prefWidth="656.0" scaleShape="false" style="-fx-background-color: FDF7E4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizz.QuizController">
@@ -15,7 +16,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="question" layoutX="14.0" layoutY="70.0" prefHeight="31.0" prefWidth="94.0" text="Question: " wrapText="true">
+      <Label fx:id="question" alignment="TOP_LEFT" layoutX="14.0" layoutY="58.0" prefHeight="74.0" prefWidth="644.0" text="Question: " wrapText="true">
          <font>
             <Font size="21.0" />
          </font></Label>
@@ -39,5 +40,16 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#fdf7e4" height="513.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="666.0" />
+      <Label fx:id="markstext" alignment="TOP_CENTER" layoutX="19.0" layoutY="29.0" prefHeight="180.0" prefWidth="486.0" text="Label" visible="false" wrapText="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="marks" alignment="CENTER" layoutX="111.0" layoutY="240.0" prefHeight="62.0" prefWidth="248.0" text="Label" visible="false">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

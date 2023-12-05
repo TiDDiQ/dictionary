@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -17,11 +18,17 @@ public class QuizController {
 
     private HelloController helloApplication;
 
-   @FXML
-   public Label question;
+    @FXML
+    public Label question;
 
-   @FXML
+    @FXML
     public Button opt1, opt2, opt3, opt4;
+
+    @FXML
+    private Label marks, markstext;
+
+    @FXML
+    private Rectangle rectangle;
 
    int counter = 0;
    static int correct = 0;
@@ -29,7 +36,6 @@ public class QuizController {
    @FXML
    private void initialize() {
         loadQuestion();
-
    }
 
    private void loadQuestion() {
@@ -107,7 +113,6 @@ public class QuizController {
 
    }
 
-
    @FXML
    public void opt1clicked(ActionEvent event) {
         checkAnswer(opt1.getText().toString());
@@ -119,20 +124,10 @@ public class QuizController {
         }
 
         if(counter == 9) {
-            try {
-                Stage thisstage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                thisstage.close();
-
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("result.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.initStyle(StageStyle.TRANSPARENT);
-                scene.setFill(Color.WHITE);
-                stage.show();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+            marks.setVisible(true);
+            markstext.setVisible(true);
+            rectangle.setVisible(true);
+            getResults();
         } else {
             counter++;
             loadQuestion();
@@ -224,25 +219,16 @@ public class QuizController {
         }
 
         if(counter == 9) {
-            try {
-                Stage thisstage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                thisstage.close();
-
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("result.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.initStyle(StageStyle.TRANSPARENT);
-                scene.setFill(Color.WHITE);
-                stage.show();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+            marks.setVisible(true);
+            markstext.setVisible(true);
+            rectangle.setVisible(true);
+            getResults();
         } else {
             counter++;
             loadQuestion();
         }
     }
+
     @FXML
     public void opt3clicked(ActionEvent event) {
         checkAnswer(opt3.getText().toString());
@@ -254,25 +240,16 @@ public class QuizController {
         }
 
         if(counter == 9) {
-            try {
-                Stage thisstage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                thisstage.close();
-
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("result.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.initStyle(StageStyle.TRANSPARENT);
-                scene.setFill(Color.WHITE);
-                stage.show();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+            marks.setVisible(true);
+            markstext.setVisible(true);
+            rectangle.setVisible(true);
+            getResults();
         } else {
             counter++;
             loadQuestion();
         }
     }
+
     @FXML
     public void opt4clicked(ActionEvent event) {
         checkAnswer(opt4.getText().toString());
@@ -284,30 +261,35 @@ public class QuizController {
         }
 
         if(counter == 9) {
-            try {
-                Stage thisstage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                thisstage.close();
-
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("result.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.initStyle(StageStyle.TRANSPARENT);
-                scene.setFill(Color.WHITE);
-                stage.show();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+            marks.setVisible(true);
+            markstext.setVisible(true);
+            rectangle.setVisible(true);
+            getResults();
         } else {
             counter++;
             loadQuestion();
         }
     }
 
-
-
     public void setHelloApplication(HelloController helloController) {
        this.helloApplication = helloController;
+    }
+
+    public void getResults() {
+        marks.setText(QuizController.correct + "/10");
+        int correct = QuizController.correct;
+        if(correct < 2) {
+            markstext.setText("Oh no! You have failed the quiz ! You need to improve your grammar");
+        }
+        else if(correct >= 2 && correct < 5) {
+            markstext.setText("Oops! You have scored less marks. It seems like you need to improve your general knowledge");
+        } else if(correct >= 5 && correct <= 7) {
+            markstext.setText("Good! A bit more improvement might have you to get better result.");
+        } else if(correct == 8 || correct == 9 ) {
+            markstext.setText("Congratulations! This is your hardwork and dedication which help you to reach the zenith of success");
+        } else if(correct == 10) {
+            markstext.setText("Congratulations! You have passed the quiz with full marks!");
+        }
     }
 }
 
