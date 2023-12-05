@@ -1,4 +1,3 @@
-//hangman
 package com.hangman;
 
 
