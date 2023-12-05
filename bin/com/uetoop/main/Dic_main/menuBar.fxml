@@ -22,11 +22,11 @@
          <left>
             <VBox prefHeight="376.0" prefWidth="64.0" spacing="9.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="dicButton" mnemonicParsing="false" onAction="#handleButton1Action" prefHeight="40.0" prefWidth="69.0" styleClass="blue-background" stylesheets="@Style.css" text="Button" />
-                  <Button fx:id="GoogleButton" mnemonicParsing="false" onAction="#handleButton2Action" prefHeight="40.0" prefWidth="67.0" stylesheets="@Style.css" text="Button" />
-                  <Button fx:id="quizButton" mnemonicParsing="false" onAction="#handleButton3Action" prefHeight="42.0" prefWidth="59.0" stylesheets="@Style.css" text="Button" />
-                  <Button fx:id="hangmanButton" mnemonicParsing="false" onAction="#handleButton4Action" prefHeight="43.0" prefWidth="54.0" stylesheets="@Style.css" text="Button" />
-                  <Button mnemonicParsing="false" onAction="#handleButton5Action" prefHeight="35.0" prefWidth="52.0" text="Button" />
+                  <Button fx:id="dicButton" mnemonicParsing="false" onAction="#handleButton1Action" opacity="0.0" prefHeight="40.0" prefWidth="69.0" styleClass="blue-background" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="GoogleButton" mnemonicParsing="false" onAction="#handleButton2Action" opacity="0.0" prefHeight="40.0" prefWidth="67.0" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="quizButton" mnemonicParsing="false" onAction="#handleButton3Action" opacity="0.0" prefHeight="42.0" prefWidth="59.0" stylesheets="@Style.css" text="Button" />
+                  <Button fx:id="hangmanButton" mnemonicParsing="false" onAction="#handleButton4Action" opacity="0.0" prefHeight="43.0" prefWidth="54.0" stylesheets="@Style.css" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#handleButton5Action" opacity="0.0" prefHeight="35.0" prefWidth="52.0" text="Button" />
                </children>
                <padding>
                   <Insets left="10.0" top="60.0" />
