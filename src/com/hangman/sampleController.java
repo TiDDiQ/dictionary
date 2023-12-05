@@ -1,3 +1,4 @@
+//hangman
 package com.hangman;
 
 
@@ -81,9 +82,12 @@ public class sampleController {
         String letter = ((Button)event.getSource()).getText();
         ((Button) event.getSource()).setDisable(true);
         if(myLetters.contains(letter)){
-            correct++;
-            int letterIndex = myLetters.indexOf(letter);
-            answer.set(letterIndex*2, letter);
+            for(int i=0; i<myLetters.size(); i++){
+                if(myLetters.get(i).equals(letter)){
+                    correct++;
+                    answer.set(i*2, letter);
+                }
+            }
             String res = String.join("", answer);
             text.setText(res);
             if(correct==myWord.length()){
