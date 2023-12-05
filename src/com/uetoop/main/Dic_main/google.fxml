@@ -2,18 +2,24 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="gg" prefHeight="449.0" prefWidth="635.0" style="-fx-background-color: FDF7E4;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.googleController">
    <children>
-      <ImageView fitHeight="476.0" fitWidth="635.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@GoogleTranslate-01.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="inputText" layoutX="73.0" layoutY="113.0" prefHeight="244.0" prefWidth="215.0" />
-      <Button fx:id="gtranslateButton" layoutX="260.0" layoutY="379.0" mnemonicParsing="false" onAction="#googleTranslateInit" prefHeight="40.0" prefWidth="116.0" text="Translate" />
+      <Text layoutX="62.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dicText-font" text="English">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font></Text>
+      <Text layoutX="339.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="buttonBorder-layout" text="Vietnamese">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font></Text>
+      <Line endX="-4.199981689453125" endY="122.59999084472656" layoutX="253.0" layoutY="115.0" startX="-4.199981689453125" startY="-70.19999694824219" />
+      <TextField fx:id="inputText" layoutX="30.0" layoutY="67.0" prefHeight="171.0" prefWidth="174.0" />
+      <Button fx:id="gtranslateButton" layoutX="216.0" layoutY="262.0" mnemonicParsing="false" onAction="#googleTranslateInit" text="Translate" />
+      <TextField fx:id="resultText" layoutX="306.0" layoutY="67.0" prefHeight="171.0" prefWidth="174.0" />
    </children>
 </AnchorPane>
