@@ -207,6 +207,27 @@
         }
 
 
+        public void DeleteWord(ActionEvent event) throws IOException {
+            try {
+                FXMLLoader loader1 = new FXMLLoader(getClass().getResource("DeleteWord.fxml"));
+                root2 = loader1.load();
+                DeleteWordController deleteWordController = loader1.getController();
+                DeleteWordController.setHelloApplication(this);
+
+                Stage removeStage = new Stage();
+                removeStage.setTitle("DeleteWord");
+
+
+                removeStage.setScene(new Scene(root2));
+
+
+                removeStage.initModality(Modality.APPLICATION_MODAL);
+
+                removeStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

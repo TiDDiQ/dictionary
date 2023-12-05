@@ -30,7 +30,7 @@
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
-      <Button layoutX="550.0" layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="34.0" text="Delete" />
+      <Button fx:id="DeleteButton" layoutX="550.0" layoutY="14.0" mnemonicParsing="false" onAction="#DeleteWord" opacity="0.0" prefHeight="40.0" prefWidth="34.0" text="Delete" />
       <Button fx:id="Addword" layoutX="515.0" layoutY="13.0" mnemonicParsing="false" onAction="#AddWord" opacity="0.0" prefHeight="39.0" prefWidth="34.0" text="Button" />
       <Label fx:id="listViewSearchFound1" layoutX="294.0" layoutY="167.0" prefHeight="32.0" prefWidth="228.0" />
       <Label fx:id="listViewAntonyms" layoutX="375.0" layoutY="342.0" prefHeight="18.0" prefWidth="180.0" styleClass="dicText-font" stylesheets="@Style.css" />
