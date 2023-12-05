@@ -209,9 +209,9 @@
 
         public void DeleteWord(ActionEvent event) throws IOException {
             try {
-                FXMLLoader loader1 = new FXMLLoader(getClass().getResource("DeleteWord.fxml"));
-                root2 = loader1.load();
-                DeleteWordController deleteWordController = loader1.getController();
+                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("DeleteWord.fxml"));
+                root2 = loader2.load();
+                DeleteWordController deleteWordController = loader2.getController();
                 DeleteWordController.setHelloApplication(this);
 
                 Stage removeStage = new Stage();
