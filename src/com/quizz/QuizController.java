@@ -36,6 +36,9 @@ public class QuizController {
    @FXML
    private void initialize() {
         loadQuestion();
+       counter = 0;
+       correct = 0;
+       wrong = 0;
    }
 
    private void loadQuestion() {
@@ -109,39 +112,16 @@ public class QuizController {
            opt3.setText("[C]. upon");
            opt4.setText("[D]. out of");
        }
-
-
-   }
-
-   @FXML
-   public void opt1clicked(ActionEvent event) {
-        checkAnswer(opt1.getText().toString());
-        if(checkAnswer(opt1.getText().toString())) {
-            correct = correct + 1;
-        }
-        else {
-            wrong = wrong + 1;
-        }
-
-        if(counter == 9) {
-            marks.setVisible(true);
-            markstext.setVisible(true);
-            rectangle.setVisible(true);
-            getResults();
-        } else {
-            counter++;
-            loadQuestion();
-        }
    }
 
     boolean checkAnswer(String answer) {
-       if(counter == 0) {
-           if(answer.equals("[A]. take")) {
-               return true;
-           } else {
-               return false;
-           }
-       }
+        if(counter == 0) {
+            if(answer.equals("[A]. take")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         if(counter == 1) {
             if(answer.equals("[C]. get")) {
                 return true;
@@ -207,6 +187,27 @@ public class QuizController {
         }
         return false;
     }
+
+   @FXML
+   public void opt1clicked(ActionEvent event) {
+        checkAnswer(opt1.getText().toString());
+        if(checkAnswer(opt1.getText().toString())) {
+            correct = correct + 1;
+        }
+        else {
+            wrong = wrong + 1;
+        }
+
+        if(counter == 9) {
+            marks.setVisible(true);
+            markstext.setVisible(true);
+            rectangle.setVisible(true);
+            getResults();
+        } else {
+            counter++;
+            loadQuestion();
+        }
+   }
 
     @FXML
     public void opt2clicked(ActionEvent event) {
@@ -274,6 +275,8 @@ public class QuizController {
     public void setHelloApplication(HelloController helloController) {
        this.helloApplication = helloController;
     }
+
+
 
     public void getResults() {
         marks.setText(QuizController.correct + "/10");
