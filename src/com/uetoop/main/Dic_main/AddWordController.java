@@ -81,6 +81,8 @@ public class AddWordController {
         closeWindow();
     }
 
+
     public void setHelloApplication(HelloController helloController) {
+
     }
 }

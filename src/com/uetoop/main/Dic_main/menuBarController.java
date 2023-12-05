@@ -1,7 +1,7 @@
 package com.uetoop.main.Dic_main;
 
 import com.quizz.QuizController;
-import com.quizz.ResultController;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +23,9 @@ public class menuBarController implements Initializable {
 
     @FXML
     private Button GoogleButton;
+
+    @FXML
+    private Button Fbutton;
 
     @FXML
     private Button dicButton;
@@ -81,4 +84,16 @@ public class menuBarController implements Initializable {
             e.printStackTrace();
         }
     }
-}
+    @FXML
+    void handleButton5Action(ActionEvent event) {
+        try {
+            AnchorPane view = FXMLLoader.load(getClass().getResource("FavoriteWord.fxml"));
+            mainPane.setCenter(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    }
+

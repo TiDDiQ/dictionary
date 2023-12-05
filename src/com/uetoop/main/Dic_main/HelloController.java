@@ -1,5 +1,6 @@
     package com.uetoop.main.Dic_main;
 
+    import com.quizz.QuizApplication;
     import com.quizz.QuizController;
     import com.uetoop.main.DictionaryDatabase;
     import com.uetoop.main.Google;
@@ -83,7 +84,7 @@
         @FXML
         void QuizGameButton(ActionEvent event) throws IOException {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/quizz/quiz.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("src/com/quizz/quiz.fxml"));
                 root = fxmlLoader.load();
                 QuizController quizController = fxmlLoader.getController();
                 quizController.setHelloApplication(this);
@@ -229,27 +230,21 @@
                 e.printStackTrace();
             }
         }
+
+
+    @FXML
+    private Button favoriteButton;
+
         public void favoriteWord(ActionEvent event) throws IOException {
-            try {
-                FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FavoriteWord.fxml"));
-                root2 = loader1.load();
-                FavoriteWordController favoriteWordController = loader1.getController();
-                FavoriteWordController.setHelloApplication(this);
-
-                Stage favoriteWordStage = new Stage();
-                favoriteWordStage.setTitle("Add Word");
-
-
-                favoriteWordStage.setScene(new Scene(root2));
-
-
-                favoriteWordStage.initModality(Modality.APPLICATION_MODAL);
-
-                favoriteWordStage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
+            String word = inputText.getText().trim();
+            if(!word.isEmpty()){
+                db.addFavouriteWord(word);
+            } else {
+                System.out.println("Error");
             }
         }
+
+
     }
 
 
