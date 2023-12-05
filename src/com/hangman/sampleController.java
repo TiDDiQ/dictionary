@@ -5,12 +5,15 @@ package com.hangman;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class sampleController {
 
@@ -41,13 +44,10 @@ public class sampleController {
 
     private int mistakes;
     private int correct;
-   // private Word word = new Words();
+    private Words word = new Words();
     private String myWord;
     private List<String> myLetters;
     private List<String> answer;
-
-    public sampleController() throws FileNotFoundException {
-    }
 
     public void initialize() {
         base1.setVisible(false);
@@ -60,7 +60,7 @@ public class sampleController {
         man.setVisible(false);
         mistakes=0;
         correct=0;
-       //myWord = word.getRandomWord();
+        myWord = word.getRandomWord();
         myLetters = Arrays.asList(myWord.split(""));
         answer = Arrays.asList(new String[myLetters.size()*2]);
         for(int i=0; i<myLetters.size()*2; i++){
@@ -77,7 +77,7 @@ public class sampleController {
         buttons.setDisable(false);
     }
 
-
+    @FXML
     public void onClick(ActionEvent event){
         String letter = ((Button)event.getSource()).getText();
         ((Button) event.getSource()).setDisable(true);
@@ -110,6 +110,7 @@ public class sampleController {
         }
     }
 
+    @FXML
     public void newGame(){
         for(int i=0; i<26; i++){
             buttons.getChildren().get(i).setDisable(false);
