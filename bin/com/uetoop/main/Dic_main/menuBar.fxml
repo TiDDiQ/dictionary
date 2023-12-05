@@ -39,7 +39,7 @@
          <center>
             <ImageView fitHeight="449.0" fitWidth="635.0" pickOnBounds="true" smooth="false" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@wp7605040.png" />
+                  <Image url="@Welcome-01.png" />
                </image>
             </ImageView>
          </center>

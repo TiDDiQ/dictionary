@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -78,7 +79,7 @@ public class menuBarController implements Initializable {
     @FXML
     void handleButton4Action(ActionEvent event) {
         try {
-            AnchorPane view = FXMLLoader.load(getClass().getResource("/com/hangman/Hangman.fxml"));
+            Pane view = FXMLLoader.load(getClass().getResource("/com/hangman/Hangman.fxml"));
             mainPane.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();

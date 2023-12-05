@@ -13,12 +13,12 @@
    <children>
       <ImageView fitHeight="449.0" fitWidth="635.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@MainScreen.png" />
+            <Image url="@MainScreen2.0-01%20(1).png" />
          </image>
       </ImageView>
       <Button fx:id="favouriteWord" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="34.0" text="favoriteWord" />
-      <TextField fx:id="inputText" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="37.0" layoutY="70.0" onAction="#onSubmit" opacity="0.67" prefHeight="23.0" prefWidth="118.0" promptText="Search for word" scaleShape="false" styleClass="dicText-font" stylesheets="@Style.css" />
-      <ListView fx:id="dictionaryListView" layoutX="25.0" layoutY="112.0" prefHeight="272.0" prefWidth="155.0" styleClass="round-layout" stylesheets="@Style.css" />
+      <TextField fx:id="inputText" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="76.0" layoutY="70.0" onAction="#onSubmit" opacity="0.67" prefHeight="25.0" prefWidth="103.0" promptText="Search for word" scaleShape="false" styleClass="dicText-font" stylesheets="@Style.css" />
+      <ListView fx:id="dictionaryListView" layoutX="57.0" layoutY="112.0" prefHeight="272.0" prefWidth="155.0" styleClass="round-layout" stylesheets="@Style.css" />
       <Button fx:id="ListSearchButton" layoutX="196.0" layoutY="82.0" mnemonicParsing="false" onAction="#searchButtonSubmit" opacity="0.0" prefHeight="40.0" prefWidth="34.0" text="OK" />
       <Label fx:id="listViewSearchFound" layoutX="303.0" layoutY="130.0" prefHeight="32.0" prefWidth="228.0" />
       <Label fx:id="listViewSearchDescription" layoutX="303.0" layoutY="248.0" prefHeight="82.0" prefWidth="271.0" styleClass="dicText-font" stylesheets="@Style.css">
