@@ -95,8 +95,19 @@ public class FavoriteWordController implements Initializable {
             e.printStackTrace();
         }
     }
+/*
+    public void addAll(List<String> items) {
+        Listview.getItems().addAll(HelloController);
+
+    }
+*/
+
+
 
     private List<String> searchList(String searchWord) {
         return db.showDatabaseLookalikeWordFavouriteInArray(searchWord);
+    }
+
+    public void setHelloController(HelloController helloController) {
     }
 }

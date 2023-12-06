@@ -9,6 +9,10 @@
 .round-layout{
 -fx-border-radius:50;
 -fx-border-color: #D7D7D7;
+
+.TextField-border{
+-fx-border-color: black;
+-fx-border-width: 5;
 }
 .buttonBorder-layout{
 -fx-border-radius: 200 ;
