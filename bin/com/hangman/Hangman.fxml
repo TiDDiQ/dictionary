@@ -174,7 +174,7 @@
             <Font name="Times New Roman Bold" size="36.0" />
          </font>
       </Text>
-      <Text fx:id="winStatus" layoutX="77.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="347.50946044921875">
+      <Text fx:id="winStatus" layoutX="40.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="347.50946044921875">
          <font>
             <Font name="Times New Roman" size="53.0" />
          </font>
@@ -184,6 +184,6 @@
             <Font name="Times New Roman" size="26.0" />
          </font>
       </Text>
-      <Button focusTraversable="false" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#newGame" style="-fx-background-color: BBAB8C;" text="New Game" />
+      <Button focusTraversable="false" layoutX="40.0" layoutY="20.0" mnemonicParsing="false" onAction="#newGame" style="-fx-background-color: BBAB8C;" text="New Game" />
    </children>
 </Pane>

@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class DeleteWordController {
 
     @FXML
@@ -19,7 +21,7 @@ public class DeleteWordController {
     @FXML
     private TextField InputText;
 
-    private DictionaryDatabase db1 = new DictionaryDatabase();
+    private DictionaryDatabase db = new DictionaryDatabase();
 
     public static void setHelloApplication(HelloController helloController) {
     }
@@ -33,7 +35,7 @@ public class DeleteWordController {
     }
 
     private void RemoveDatabaseWord(String word) {
-        db1.removeDatabaseWord(word);
+        db.removeDatabaseWord(word);
 
         // Display a success message using Alert
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -42,6 +44,10 @@ public class DeleteWordController {
         alert.setContentText("Word removed successfully: " + word);
         alert.showAndWait();
     }
+    private List<String> searchList(String searchWord) {
+        return db.showDatabaseLookalikeWordFavouriteInArray(searchWord);
+    }
+
 
     @FXML
     private void closeWindow() {
