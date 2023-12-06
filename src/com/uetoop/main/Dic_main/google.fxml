@@ -15,16 +15,17 @@
             <Image url="@GoogleTranslate-01.png" />
          </image>
       </ImageView>
-      <Text layoutX="121.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dicText-font" text="English">
+      <Text fx:id="firstLang" layoutX="106.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dicText-font" text="English" wrappingWidth="157.8458251953125">
          <font>
             <Font name="Times New Roman" size="28.0" />
          </font></Text>
-      <Text layoutX="400.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="buttonBorder-layout" text="Vietnamese">
+      <Text fx:id="secondLang" layoutX="394.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="buttonBorder-layout" text="Vietnamese" wrappingWidth="150.64581298828125">
          <font>
             <Font name="Times New Roman" size="27.0" />
          </font></Text>
       <TextField fx:id="inputText" layoutX="62.0" layoutY="103.0" prefHeight="270.0" prefWidth="246.0" />
       <Button fx:id="gtranslateButton" layoutX="251.0" layoutY="389.0" mnemonicParsing="false" onAction="#googleTranslateInit" opacity="0.0" prefHeight="29.0" prefWidth="131.0" text="Translate" />
       <TextField fx:id="resultText" layoutX="330.0" layoutY="103.0" prefHeight="270.0" prefWidth="264.0" />
+      <Button fx:id="swapButton" layoutX="290.0" layoutY="47.0" mnemonicParsing="false" onAction="#translateSwap" opacity="0.0" prefHeight="48.0" prefWidth="52.0" text="Translate" />
    </children>
 </AnchorPane>
