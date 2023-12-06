@@ -20,26 +20,10 @@
          <font>
             <Font size="21.0" />
          </font></Label>
-      <Button fx:id="opt1" layoutX="82.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button1" textFill="#fdf7e4">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="opt2" layoutX="359.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt2clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button2" textFill="#fdf7e4">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="opt3" layoutX="81.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt3clicked" prefHeight="48.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button3" textFill="#fdf7e4">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="opt4" layoutX="359.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt4clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button4" textFill="#fdf7e4">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
+      <Button fx:id="opt1" layoutX="82.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt1clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button1" textFill="#fdf7e4" />
+      <Button fx:id="opt2" layoutX="359.0" layoutY="176.0" mnemonicParsing="false" onAction="#opt2clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button2" textFill="#fdf7e4" />
+      <Button fx:id="opt3" layoutX="81.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt3clicked" prefHeight="48.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button3" textFill="#fdf7e4" />
+      <Button fx:id="opt4" layoutX="359.0" layoutY="276.0" mnemonicParsing="false" onAction="#opt4clicked" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: BBAB8C; -fx-background-radius: 10px;" text="Button4" textFill="#fdf7e4" />
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#fdf7e4" height="513.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="666.0" />
       <Label fx:id="markstext" alignment="TOP_CENTER" layoutX="19.0" layoutY="29.0" prefHeight="180.0" prefWidth="486.0" text="Label" visible="false" wrapText="true">
          <font>

@@ -14,7 +14,10 @@
     import javafx.fxml.Initializable;
     import javafx.scene.Parent;
     import javafx.scene.Scene;
-    import javafx.scene.control.*;
+    import javafx.scene.control.Button;
+    import javafx.scene.control.Label;
+    import javafx.scene.control.ListView;
+    import javafx.scene.control.TextField;
     import javafx.scene.image.Image;
     import javafx.scene.image.ImageView;
     import javafx.scene.Node;
@@ -56,7 +59,6 @@
         private Parent root;
         private Parent root1;
         DictionaryDatabase db = new DictionaryDatabase();
-
 
 
         @FXML
@@ -229,38 +231,15 @@
         }
 
 
-         @FXML
-        private Button favoriteButton;
-        @FXML
-        ArrayList<String> favWords = db.showAllFavouriteWordsInArray();
-
-        @FXML
-        private FavoriteWordController favoriteWordController;
-
-        @FXML
-        public void initialize() {
-            favoriteWordController.setHelloController(this);
-        }
-
-        public ArrayList<String> getFavWords() {
-            return favWords;
-        }
-
+    @FXML
+    private Button favoriteButton;
 
         public void favoriteWord(ActionEvent event) throws IOException {
-
-            String word = inputText.getText().trim();
-            if (!word.isEmpty()) {
-
-                favWords.add(word);
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Success");
-                alert.setHeaderText(null);
-                alert.setContentText("Word added successfully: " + word);
-                alert.showAndWait();
+            String word = currentWord.trim();
+            if(!word.isEmpty()){
+                db.addFavouriteWord(word);
             } else {
-                System.out.println("Error: Word is empty");
+                System.out.println("Error");
             }
         }
 
