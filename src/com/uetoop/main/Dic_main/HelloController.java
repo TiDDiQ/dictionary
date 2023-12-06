@@ -14,7 +14,10 @@
     import javafx.fxml.Initializable;
     import javafx.scene.Parent;
     import javafx.scene.Scene;
-    import javafx.scene.control.*;
+    import javafx.scene.control.Button;
+    import javafx.scene.control.Label;
+    import javafx.scene.control.ListView;
+    import javafx.scene.control.TextField;
     import javafx.scene.image.Image;
     import javafx.scene.image.ImageView;
     import javafx.scene.Node;
@@ -235,20 +238,35 @@
             String word = currentWord.trim();
             if(!word.isEmpty()){
                 db.addFavouriteWord(word);
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Success");
-                alert.setHeaderText(null);
-                alert.setContentText("Word added successfully: " + word);
-                alert.showAndWait();
+                startFavConfirmWindow();
             } else {
                 System.out.println("Error");
             }
         }
 
+    public void startFavConfirmWindow() {
+        try {
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("favWordConfirm.fxml"));
+            root2 = loader1.load();
+            FavWordConfirmController favWordConfirmController = loader1.getController();
+            favWordConfirmController.setHelloApplication(this);
 
+            Stage addWordStage = new Stage();
+            addWordStage.setTitle("Confirm");
+
+
+            addWordStage.setScene(new Scene(root2));
+
+
+            addWordStage.initModality(Modality.APPLICATION_MODAL);
+
+            addWordStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+}
 
 
 
