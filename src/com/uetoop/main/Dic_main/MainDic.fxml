@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" prefHeight="449.0" prefWidth="635.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.HelloController">
+<AnchorPane focusTraversable="true" prefHeight="449.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.HelloController">
    <children>
       <ImageView fitHeight="449.0" fitWidth="635.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,15 +17,15 @@
          </image>
       </ImageView>
       <Button fx:id="favouriteWord" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="34.0" text="favoriteWord" />
-      <TextField fx:id="inputText" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="57.0" layoutY="63.0" onAction="#onSubmit" prefHeight="39.0" prefWidth="130.0" promptText="Search for word" scaleShape="false" style="-fx-border-color: BBAB8C; -fx-border-radius: 5; -fx-border-width: 3;" stylesheets="@Style.css" />
-      <ListView fx:id="dictionaryListView" layoutX="32.0" layoutY="112.0" prefHeight="272.0" prefWidth="180.0" style="-fx-border-radius: 10; -fx-border-width: 10; -fx-background-color: FDF7E4;" styleClass="round-layout" stylesheets="@Style.css" />
+      <TextField fx:id="inputText" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="57.0" layoutY="63.0" onAction="#onSubmit" prefHeight="39.0" prefWidth="130.0" promptText="Search for word" scaleShape="false" style="-fx-border-color: BBAB8C; -fx-border-radius: 5; -fx-border-width: 3;" />
+      <ListView fx:id="dictionaryListView" layoutX="32.0" layoutY="112.0" prefHeight="272.0" prefWidth="180.0" style="-fx-border-radius: 10; -fx-border-width: 10; -fx-background-color: FDF7E4;" styleClass="round-layout" />
       <Button fx:id="ListSearchButton" layoutX="188.0" layoutY="63.0" mnemonicParsing="false" onAction="#searchButtonSubmit" opacity="0.0" prefHeight="40.0" prefWidth="34.0" text="OK" />
       <Label fx:id="listViewSearchFound" layoutX="303.0" layoutY="130.0" prefHeight="32.0" prefWidth="228.0" />
-      <Label fx:id="listViewSearchDescription" layoutX="303.0" layoutY="248.0" prefHeight="82.0" prefWidth="271.0" styleClass="dicText-font" stylesheets="@Style.css">
+      <Label fx:id="listViewSearchDescription" layoutX="303.0" layoutY="248.0" prefHeight="82.0" prefWidth="271.0" styleClass="dicText-font">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button fx:id="TextToSpeech" layoutX="289.0" layoutY="185.0" mnemonicParsing="false" onAction="#ttsButtonSubmit" opacity="0.0" prefHeight="39.0" prefWidth="41.0" styleClass="buttonBorder-layout" stylesheets="@Style.css" text="Sound" />
+      <Button fx:id="TextToSpeech" layoutX="289.0" layoutY="185.0" mnemonicParsing="false" onAction="#ttsButtonSubmit" opacity="0.0" prefHeight="39.0" prefWidth="41.0" styleClass="buttonBorder-layout" text="Sound" />
       <Label fx:id="listViewPronunciation" layoutX="339.0" layoutY="177.0" prefHeight="48.0" prefWidth="169.0">
          <font>
             <Font name="System Bold Italic" size="12.0" />
@@ -33,7 +33,7 @@
       <Button fx:id="DeleteButton" layoutX="572.0" layoutY="2.0" mnemonicParsing="false" onAction="#DeleteWord" opacity="0.0" prefHeight="40.0" prefWidth="42.0" text="Delete" />
       <Button fx:id="Addword" layoutX="529.0" layoutY="2.0" mnemonicParsing="false" onAction="#AddWord" opacity="0.0" prefHeight="39.0" prefWidth="34.0" text="Button" />
       <Label fx:id="listViewSearchFound1" layoutX="303.0" layoutY="130.0" prefHeight="32.0" prefWidth="228.0" />
-      <Label fx:id="listViewAntonyms" layoutX="403.0" layoutY="352.0" prefHeight="18.0" prefWidth="180.0" styleClass="dicText-font" stylesheets="@Style.css" />
+      <Label fx:id="listViewAntonyms" layoutX="403.0" layoutY="352.0" prefHeight="18.0" prefWidth="180.0" styleClass="dicText-font" />
       <Label fx:id="listViewSynonyms" layoutX="405.0" layoutY="390.0" prefHeight="18.0" prefWidth="190.0" />
       <Button fx:id="favoriteButton" layoutX="479.0" layoutY="2.0" mnemonicParsing="false" onAction="#favoriteWord" opacity="0.0" prefHeight="39.0" prefWidth="42.0" text="Button" />
    </children>
