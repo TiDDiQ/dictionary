@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="gg" prefHeight="449.0" prefWidth="635.0" style="-fx-background-color: FDF7E4;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.googleController">
+<AnchorPane fx:id="gg" prefHeight="449.0" prefWidth="635.0" style="-fx-background-color: FDF7E4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uetoop.main.Dic_main.googleController">
    <children>
       <ImageView fitHeight="449.0" fitWidth="635.0" pickOnBounds="true" preserveRatio="true">
          <image>
