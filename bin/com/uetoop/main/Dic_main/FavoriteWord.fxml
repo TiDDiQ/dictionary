@@ -19,8 +19,11 @@
       <Button fx:id="deleteFavWord" layoutX="536.0" layoutY="24.0" mnemonicParsing="false" onAction="#deleteFavouriteWord" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: BBAB8C;" text="Remove" />
       <TextField fx:id="listViewSearchBar" layoutX="72.0" layoutY="61.0" />
       <Button fx:id="searchButton" layoutX="227.0" layoutY="61.0" mnemonicParsing="false" onAction="#searchButtonSubmit" style="-fx-background-color: BBAB8C;" text="SEARCH" />
-      <Label fx:id="listViewSearchFound" layoutX="317.0" layoutY="141.0" prefHeight="38.0" prefWidth="78.0" text="Label" />
-      <Label fx:id="listViewSearchDescription" layoutX="447.0" layoutY="96.0" prefHeight="38.0" prefWidth="77.0" text="Label">
+      <Label fx:id="listViewSearchFound" layoutX="441.0" layoutY="96.0" prefHeight="38.0" prefWidth="78.0" text="Label">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label fx:id="listViewSearchDescription" layoutX="305.0" layoutY="143.0" prefHeight="38.0" prefWidth="77.0" text="Label">
          <font>
             <Font name="Times New Roman" size="10.0" />
          </font></Label>
