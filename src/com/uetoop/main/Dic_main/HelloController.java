@@ -235,7 +235,7 @@
     private Button favoriteButton;
 
         public void favoriteWord(ActionEvent event) throws IOException {
-            String word = inputText.getText().trim();
+            String word = currentWord.trim();
             if(!word.isEmpty()){
                 db.addFavouriteWord(word);
             } else {
